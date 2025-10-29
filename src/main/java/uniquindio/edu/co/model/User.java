@@ -1,4 +1,4 @@
-package uniquindio.edu.co.gymuq.model;
+package uniquindio.edu.co.model;
 
 public class User {
 
@@ -10,10 +10,11 @@ public class User {
     private int age;
 
     //Relationships
-    private Membership theMembership;
+    public Membership theMembership;
 
     /**
      * User class Constructor
+     *
      * @param name of the user
      * @param lastName of the user
      * @param personalId of the user

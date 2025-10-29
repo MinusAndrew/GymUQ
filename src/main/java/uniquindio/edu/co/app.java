@@ -1,4 +1,4 @@
-package uniquindio.edu.co.gymuq;
+package uniquindio.edu.co;
 import java.util.Scanner;
 public class app {
     public static final Scanner scanner = new Scanner(System.in);

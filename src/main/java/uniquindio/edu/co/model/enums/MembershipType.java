@@ -1,4 +1,4 @@
-package uniquindio.edu.co.gymuq.model.enums;
+package uniquindio.edu.co.model.enums;
 
 public enum MembershipType {
     MONTHLY,

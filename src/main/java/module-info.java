@@ -11,6 +11,6 @@ module uniquindio.edu.co.gymuq {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
 
-    opens uniquindio.edu.co.gymuq to javafx.fxml;
-    exports uniquindio.edu.co.gymuq;
+    opens uniquindio.edu.co to javafx.fxml;
+    exports uniquindio.edu.co;
 }
