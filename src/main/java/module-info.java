@@ -1,4 +1,4 @@
-module uniquindio.edu.co.gymuq {
+module uniquindio.edu.co {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -10,7 +10,8 @@ module uniquindio.edu.co.gymuq {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires javafx.graphics;
 
-    opens uniquindio.edu.co.gymuq to javafx.fxml;
-    exports uniquindio.edu.co.gymuq;
+    opens uniquindio.edu.co to javafx.fxml;
+    exports uniquindio.edu.co;
 }

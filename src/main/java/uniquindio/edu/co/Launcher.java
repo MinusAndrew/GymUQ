@@ -1,4 +1,4 @@
-package uniquindio.edu.co.gymuq;
+package uniquindio.edu.co;
 
 import javafx.application.Application;
 

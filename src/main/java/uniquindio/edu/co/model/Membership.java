@@ -1,4 +1,4 @@
-package uniquindio.edu.co.gymuq.model;
+package uniquindio.edu.co.model;
 
 public class Membership {
     private int cost;
