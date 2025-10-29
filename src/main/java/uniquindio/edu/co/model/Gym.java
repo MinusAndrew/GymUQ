@@ -36,6 +36,24 @@ public class Gym {
     }
 
     /**
+     * Method to search a user using the personalId
+     * @param id of the user to search
+     * @return the user with the personalId
+     */
+    public User searchUserByPersonalId(int id){
+        User user = null;
+        for(User u : usersList){
+            if(u.getPersonalId() == id){
+                user = u;
+                break;
+            }
+        }
+        return user;
+    }
+
+    //Getters and Setters
+
+    /**
      * Get gym name
      * @return name of the gym
      */

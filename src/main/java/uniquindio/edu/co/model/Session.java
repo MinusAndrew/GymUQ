@@ -14,7 +14,7 @@ public class Session {
 
     // Relationships
     private List<Trainer> trainersList;
-
+    private List<User> sessionUsersList;
 
     /**
      * Session class Constructor
@@ -30,6 +30,7 @@ public class Session {
         this.schedule = schedule;
         this.name = name;
         this.trainersList=new ArrayList<>();
+        this.sessionUsersList=new ArrayList<>();
 
     }
 
@@ -65,11 +66,19 @@ public class Session {
         this.name = name;
     }
 
-    public List<Trainer> getListTrainers() {
+    public List<Trainer> getTrainersList() {
         return trainersList;
     }
 
     public void setTrainersList(List<Trainer> trainersList) {
         this.trainersList = trainersList;
+    }
+
+    public List<User> getSessionUsersList() {
+        return sessionUsersList;
+    }
+
+    public void setSessionUsersList(List<User> sessionUsersList) {
+        this.sessionUsersList = sessionUsersList;
     }
 }

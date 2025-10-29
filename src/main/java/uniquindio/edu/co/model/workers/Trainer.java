@@ -7,20 +7,22 @@ public class Trainer extends Worker {
     private Session theTrainerSession;
 
     /**
+     * Trainer class Constructor
      *
-     * @param name            of the Trainer
-     * @param lastName        of the Trainer
-     * @param personalId      of the Trainer
-     * @param phoneNumber     of the Trainer
-     * @param age             of the Trainer
-     * @param theMembership   of the Trainer
-     * @param password        of the Trainer
-     * @param theTrainerSession of the Trainer
+     * @param name           of the Trainer
+     * @param lastName       of the Trainer
+     * @param personalId     of the Trainer
+     * @param phoneNumber    of the Trainer
+     * @param age            of the Trainer
+     * @param theMembership  of the Trainer
+     * @param theUserSession of the Trainer
+     * @param password       of the Trainer
      */
-    public Trainer(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, String password,Session theTrainerSession) {
-        super(name, lastName, personalId, phoneNumber, age, theMembership, password);
+    public Trainer(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, Session theUserSession, String password, Session theTrainerSession) {
+        super(name, lastName, personalId, phoneNumber, age, theMembership, theUserSession, password);
         this.theTrainerSession = theTrainerSession;
     }
+
 
     /**
      * Get Trainer Session
