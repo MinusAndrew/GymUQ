@@ -10,7 +10,6 @@ module uniquindio.edu.co {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
-    requires javafx.graphics;
 
     opens uniquindio.edu.co to javafx.fxml;
     exports uniquindio.edu.co;
