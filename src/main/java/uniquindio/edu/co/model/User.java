@@ -10,7 +10,8 @@ public class User {
     private int age;
 
     //Relationships
-    public Membership theMembership;
+    private Membership theMembership;
+
 
     /**
      * User class Constructor

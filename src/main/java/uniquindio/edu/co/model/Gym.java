@@ -28,6 +28,14 @@ public class Gym {
     }
 
     /**
+     * Method to register a user in the usersList
+     * @param user to add
+     */
+    public void registerUser(User user){
+        usersList.add(user);
+    }
+
+    /**
      * Get gym name
      * @return name of the gym
      */

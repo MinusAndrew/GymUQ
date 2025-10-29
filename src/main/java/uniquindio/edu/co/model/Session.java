@@ -4,7 +4,7 @@ import uniquindio.edu.co.model.workers.Trainer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Class {
+public class Session {
 
     //Attributes
     private int maxCapacity;
@@ -15,15 +15,16 @@ public class Class {
     // Relationships
     private List<Trainer> trainersList;
 
+
     /**
-     * Class class Constructor
+     * Session class Constructor
      *
-     * @param maxCapacity of the Class
-     * @param type of the Class
-     * @param schedule of the Class
-     * @param name of the Class
+     * @param maxCapacity of the Session
+     * @param type of the Session
+     * @param schedule of the Session
+     * @param name of the Session
      */
-    public Class(int maxCapacity, String type, String schedule, String name) {
+    public Session(int maxCapacity, String type, String schedule, String name) {
         this.maxCapacity = maxCapacity;
         this.type = type;
         this.schedule = schedule;

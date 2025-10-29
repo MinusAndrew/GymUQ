@@ -1,5 +1,8 @@
 package uniquindio.edu.co.model;
 
+import uniquindio.edu.co.model.enums.MembershipPlan;
+import uniquindio.edu.co.model.enums.MembershipType;
+
 public class Membership {
 
     //Attributes
@@ -8,8 +11,12 @@ public class Membership {
     private String endDate;
     boolean status;
 
-    // Aggregation Relationship
+    //Relationships
     private User theUser;
+
+    //Enums
+    private MembershipPlan plan;
+    private MembershipType type;
 
     /**
      * Membership class Constructor
@@ -18,14 +25,20 @@ public class Membership {
      * @param startDate of the membership
      * @param endDate of the membership
      * @param status of the membership
+     * @param theUser of the membership
+     * @param plan of the membership
+     * @param type of the membership
      */
-
-    public Membership(int cost, String startDate, String endDate, boolean status) {
+    public Membership(int cost, String startDate, String endDate, boolean status, User theUser, MembershipPlan plan, MembershipType type) {
         this.cost = cost;
         this.startDate = startDate;
         this.endDate = endDate;
         this.status = status;
+        this.theUser = theUser;
+        this.plan = plan;
+        this.type = type;
     }
+
 
     public int getCost() {
         return cost;
@@ -65,5 +78,21 @@ public class Membership {
 
     public void setTheUser(User theUser) {
         this.theUser = theUser;
+    }
+
+    public MembershipPlan getPlan() {
+        return plan;
+    }
+
+    public void setPlan(MembershipPlan plan) {
+        this.plan = plan;
+    }
+
+    public MembershipType getType() {
+        return type;
+    }
+
+    public void setType(MembershipType type) {
+        this.type = type;
     }
 }

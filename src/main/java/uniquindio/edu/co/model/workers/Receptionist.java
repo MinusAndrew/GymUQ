@@ -1,10 +1,11 @@
 package uniquindio.edu.co.model.workers;
-import uniquindio.edu.co.model.Membership;
-import uniquindio.edu.co.model.User;
-import uniquindio.edu.co.model.Worker;
+import uniquindio.edu.co.model.*;
+import uniquindio.edu.co.model.enums.*;
+import java.util.List;
 
 public class Receptionist extends Worker {
     /**
+     * Receptionist class Constructor
      *
      * @param name of the Receptionist
      * @param lastName of the Receptionist
@@ -17,7 +18,26 @@ public class Receptionist extends Worker {
     public Receptionist(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, String password) {
         super(name, lastName, personalId, phoneNumber, age, theMembership, password);
     }
-    public void registrerUser(User user){
 
+    /**
+     * Method that register a user in the Gym usersList
+     * @param user to add
+     * @param gym which we are going to add the user
+     */
+    public void registerUser(User user,Gym gym){
+        List<User> userlist = gym.getUsersList();
+        userlist.add(user);
+        gym.setUsersList(userlist);
+    }
+
+    /**
+     * Method that assign a Membership to a User
+     * @param user which we are going to assign the Membership
+     * @param membershipType to add
+     */
+    public void assignMembership(User user, MembershipType membershipType){
+        Membership membership = user.getTheMembership();
+        membership.setType(membershipType);
+        user.setTheMembership(membership);
     }
 }
