@@ -11,7 +11,7 @@ public class User {
 
     //Relationships
     private Membership theMembership;
-
+    private Session theUserSession;
 
     /**
      * User class Constructor
@@ -22,15 +22,17 @@ public class User {
      * @param phoneNumber of the user
      * @param age of the user
      * @param theMembership of the user
+     * @param theUserSession of the user
      */
 
-    public User(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership) {
+    public User(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, Session theUserSession) {
         this.name = name;
         this.lastName = lastName;
         this.personalId = personalId;
         this.phoneNumber = phoneNumber;
         this.age = age;
         this.theMembership = theMembership;
+        this.theUserSession = theUserSession;
     }
 
     //Getters and Setters
@@ -129,5 +131,21 @@ public class User {
      */
     public void setTheMembership(Membership theMembership) {
         this.theMembership = theMembership;
+    }
+
+    /**
+     * Get the User Session
+     * @return the User Session
+     */
+    public Session getTheUserSession() {
+        return theUserSession;
+    }
+
+    /**
+     * Set the User Session
+     * @param theUserSession of the user
+     */
+    public void setTheUserSession(Session theUserSession) {
+        this.theUserSession = theUserSession;
     }
 }

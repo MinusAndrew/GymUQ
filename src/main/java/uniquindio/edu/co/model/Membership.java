@@ -142,4 +142,6 @@ public class Membership {
     public void setType(MembershipType type) {
         this.type = type;
     }
+
+
 }
