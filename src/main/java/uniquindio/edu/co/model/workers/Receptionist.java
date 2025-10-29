@@ -21,7 +21,7 @@ public class Receptionist extends Worker {
     }
 
     /**
-     * Method that register a user in the Gym usersList
+     * Method that registers a user inside the Gym usersList
      * @param user to add
      * @param gym which we are going to add the user
      */

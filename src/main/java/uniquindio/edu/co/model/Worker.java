@@ -21,12 +21,19 @@ public class Worker extends User {
         super(name, lastName, personalId, phoneNumber, age, theMembership, theUserSession);
         this.password = password;
     }
-
-
+    /**
+     * VERY SAFE AND ABSOLUTELY SECURE METHOD
+     * @return returns the worker's password LMAO.
+     */
     public String getPassword() {
         return password;
     }
 
+
+    /**
+     * Safer than the last one is for sure
+     * @param password the password given by the Worker.
+     */
     public void setPassword(String password) {
         this.password = password;
     }
