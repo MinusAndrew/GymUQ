@@ -12,8 +12,8 @@ public class Gym {
     private int id;
 
     //Relationships
-    private List<User> usersList;
-    private List<Trainer> trainersList;
+    private List<User> userList;
+    private List<Trainer> trainerList;
 
     /**
      * Gym class Constructor
@@ -23,79 +23,79 @@ public class Gym {
     public Gym(String name, int id) {
         this.name = name;
         this.id = id;
-        this.usersList = new ArrayList<>();
-        this.trainersList = new ArrayList<>();
+        this.userList = new ArrayList<>();
+        this.trainerList = new ArrayList<>();
     }
 
     /**
-     * Method to register a user in the usersList
+     * Method to register a user in the usersList.
      * @param user to add
      */
     public void registerUser(User user){
-        usersList.add(user);
+        userList.add(user);
     }
 
     /**
-     * Get gym name
-     * @return name of the gym
+     * Gets gym name.
+     * @return name of the gym.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Set gym name
-     * @param name of the gym
+     * Sets a gym name.
+     * @param name the name of the gym.
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Get gym id
-     * @return gym id
+     * Gets gym id.
+     * @return returns the gym id
      */
     public int getId() {
         return id;
     }
 
     /**
-     * Set gym id
-     * @param id if the gym
+     * Sets gym id.
+     * @param id the gym id.
      */
     public void setId(int id) {
         this.id = id;
     }
 
     /**
-     * Get the list of users in the gym
-     * @return gym usersList
+     * Gets the list of users in the gym.
+     * @return the usersList of the gym.
      */
-    public List<User> getUsersList() {
-        return usersList;
+    public List<User> getUserList() {
+        return userList;
     }
 
     /**
-     * Set the list of users in the gym
-     * @param usersList of the gym
+     * Sets the list of users in the gym
+     * @param userList the list of the users in the gym.
      */
-    public void setUsersList(List<User> usersList) {
-        this.usersList = usersList;
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 
     /**
-     * Get the list of trainers in the gym
-     * @return gym trainersList
+     * Gets the list of trainers in the gym.
+     * @return the trainerList of the gym
      */
-    public List<Trainer> getTrainersList() {
-        return trainersList;
+    public List<Trainer> getTrainerList() {
+        return trainerList;
     }
 
     /**
-     * Set the list of trainers in the gym
-     * @param trainersList of the gym
+     * Sets the list of trainers in the gym
+     * @param trainerList of the gym
      */
-    public void setTrainersList(List<Trainer> trainersList) {
-        this.trainersList = trainersList;
+    public void setTrainerList(List<Trainer> trainerList) {
+        this.trainerList = trainerList;
     }
 }

@@ -20,14 +20,14 @@ public class Receptionist extends Worker {
     }
 
     /**
-     * Method that register a user in the Gym usersList
+     * Method that registers a user inside the Gym usersList
      * @param user to add
      * @param gym which we are going to add the user
      */
     public void registerUser(User user,Gym gym){
-        List<User> userlist = gym.getUsersList();
+        List<User> userlist = gym.getUserList();
         userlist.add(user);
-        gym.setUsersList(userlist);
+        gym.setUserList(userlist);
     }
 
     /**
