@@ -12,8 +12,8 @@ public class Gym {
     private int id;
 
     //Relationships
-    private List<User> userList;
-    private List<Trainer> trainerList;
+    private List<User> usersList;
+    private List<Trainer> trainersList;
 
     /**
      * Gym class Constructor
@@ -23,8 +23,8 @@ public class Gym {
     public Gym(String name, int id) {
         this.name = name;
         this.id = id;
-        this.userList = new ArrayList<>();
-        this.trainerList = new ArrayList<>();
+        this.usersList = new ArrayList<>();
+        this.trainersList = new ArrayList<>();
     }
 
     /**
@@ -32,7 +32,7 @@ public class Gym {
      * @param user to add
      */
     public void registerUser(User user){
-        userList.add(user);
+        usersList.add(user);
     }
 
     /**
@@ -71,31 +71,31 @@ public class Gym {
      * Gets the list of users in the gym.
      * @return the usersList of the gym.
      */
-    public List<User> getUserList() {
-        return userList;
+    public List<User> getUsersList() {
+        return usersList;
     }
 
     /**
      * Sets the list of users in the gym
-     * @param userList the list of the users in the gym.
+     * @param usersList the list of the users in the gym.
      */
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
+    public void setUsersList(List<User> usersList) {
+        this.usersList = usersList;
     }
 
     /**
      * Gets the list of trainers in the gym.
      * @return the trainerList of the gym
      */
-    public List<Trainer> getTrainerList() {
-        return trainerList;
+    public List<Trainer> getTrainersList() {
+        return trainersList;
     }
 
     /**
      * Sets the list of trainers in the gym
-     * @param trainerList of the gym
+     * @param trainersList of the gym
      */
-    public void setTrainerList(List<Trainer> trainerList) {
-        this.trainerList = trainerList;
+    public void setTrainersList(List<Trainer> trainersList) {
+        this.trainersList = trainersList;
     }
 }

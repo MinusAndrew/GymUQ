@@ -25,9 +25,9 @@ public class Receptionist extends Worker {
      * @param gym which we are going to add the user
      */
     public void registerUser(User user,Gym gym){
-        List<User> userlist = gym.getUserList();
+        List<User> userlist = gym.getUsersList();
         userlist.add(user);
-        gym.setUserList(userlist);
+        gym.setUsersList(userlist);
     }
 
     /**
