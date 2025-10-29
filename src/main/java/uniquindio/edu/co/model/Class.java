@@ -1,26 +1,34 @@
 package uniquindio.edu.co.model;
 
+import uniquindio.edu.co.model.workers.Trainer;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Class {
+
+    //Attributes
     private int maxCapacity;
     private String type;
     private String schedule;
     private String name;
 
-    // Relationship to trainer
+    // Relationships
+    private List<Trainer> trainersList;
 
     /**
+     * Class class Constructor
      *
-     * @param maxCapacity of the class
-     * @param type of the class
-     * @param schedule of the class
-     * @param name of the class
+     * @param maxCapacity of the Class
+     * @param type of the Class
+     * @param schedule of the Class
+     * @param name of the Class
      */
     public Class(int maxCapacity, String type, String schedule, String name) {
         this.maxCapacity = maxCapacity;
         this.type = type;
         this.schedule = schedule;
         this.name = name;
-        //add Trainer
+        this.trainersList=new ArrayList<>();
 
     }
 
@@ -54,5 +62,13 @@ public class Class {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Trainer> getListTrainers() {
+        return trainersList;
+    }
+
+    public void setTrainersList(List<Trainer> trainersList) {
+        this.trainersList = trainersList;
     }
 }

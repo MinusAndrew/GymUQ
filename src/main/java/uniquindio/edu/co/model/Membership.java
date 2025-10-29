@@ -1,6 +1,8 @@
 package uniquindio.edu.co.model;
 
 public class Membership {
+
+    //Attributes
     private int cost;
     private String startDate;
     private String endDate;
@@ -10,6 +12,7 @@ public class Membership {
     private User theUser;
 
     /**
+     * Membership class Constructor
      *
      * @param cost of the membership
      * @param startDate of the membership
