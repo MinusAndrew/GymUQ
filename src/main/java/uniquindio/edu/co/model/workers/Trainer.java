@@ -4,7 +4,8 @@ import uniquindio.edu.co.model.*;
 public class Trainer extends Worker {
 
     //Relationships
-    private Session theTrainerSession;
+    //private Session theTrainerSession;
+    // not need it
 
     /**
      * Trainer class Constructor
@@ -18,16 +19,15 @@ public class Trainer extends Worker {
      * @param theUserSession of the Trainer
      * @param password       of the Trainer
      */
-    public Trainer(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, Session theUserSession, String password, Session theTrainerSession) {
+    public Trainer(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, Session theUserSession, String password) {
         super(name, lastName, personalId, phoneNumber, age, theMembership, theUserSession, password);
-        this.theTrainerSession = theTrainerSession;
     }
 
 
-    /**
+    /*
      * Get Trainer Session
      * @return Trainer Session
-     */
+
     public Session getTheTrainerSession() {
         return theTrainerSession;
     }
@@ -35,8 +35,13 @@ public class Trainer extends Worker {
     /**
      * Set Trainer Session
      * @param theTrainerSession of the Trainer
-     */
+
     public void setTheTrainerSession(Session theTrainerSession) {
         this.theTrainerSession = theTrainerSession;
     }
+
+    */
+
+
+
 }
