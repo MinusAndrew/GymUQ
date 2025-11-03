@@ -36,7 +36,7 @@ public class Gym {
     }
 
     /**
-     * Method to search a user using the personalId
+     * Method to search a user using their personalId
      * @param id of the user to search
      * @return the user with the personalId
      */
@@ -116,4 +116,5 @@ public class Gym {
     public void setTrainersList(List<Trainer> trainersList) {
         this.trainersList = trainersList;
     }
+
 }

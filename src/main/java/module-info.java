@@ -13,4 +13,6 @@ module uniquindio.edu.co {
 
     opens uniquindio.edu.co to javafx.fxml;
     exports uniquindio.edu.co;
+    exports uniquindio.edu.co.Controller;
+    opens uniquindio.edu.co.Controller to javafx.fxml;
 }
