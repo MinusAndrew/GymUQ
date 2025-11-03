@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="504.0" prefWidth="711.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.Controller.MainMenu">
+   <children>
+      <Text layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GymUQ" wrappingWidth="147.90499877929688">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Text>
+      <Button layoutX="540.0" layoutY="418.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="158.0" text="Reservar Clase" textAlignment="CENTER" />
+      <Button layoutX="541.0" layoutY="343.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="158.0" text="Asignar Membresia" textAlignment="CENTER" />
+      <Button layoutX="541.0" layoutY="305.0" mnemonicParsing="false" onAction="#registerUserC" prefHeight="26.0" prefWidth="158.0" text="Registrar Usuario" textAlignment="CENTER" />
+      <Button layoutX="541.0" layoutY="381.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="158.0" text="Chequear Membresia" textAlignment="CENTER" />
+   </children>
+</AnchorPane>
