@@ -12,7 +12,9 @@ module uniquindio.edu.co {
     requires com.almasb.fxgl.all;
 
     opens uniquindio.edu.co to javafx.fxml;
+    opens uniquindio.edu.co.viewController to javafx.fxml;
     exports uniquindio.edu.co;
     exports uniquindio.edu.co.Controller;
     exports uniquindio.edu.co.viewController;
+    exports uniquindio.edu.co.model;
 }
