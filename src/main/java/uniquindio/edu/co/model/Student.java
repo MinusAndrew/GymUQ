@@ -15,4 +15,10 @@ public class Student extends User {
     public Student(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, Session theUserSession) {
         super(name, lastName, personalId, phoneNumber, age, theMembership, theUserSession);
     }
+
+    public Student(String name, String lastName, int personalId, String phoneNumber, int age) {
+        super(name, lastName, personalId, phoneNumber, age);
+    }
+
+
 }

@@ -35,6 +35,17 @@ public class User {
         this.theUserSession = theUserSession;
     }
 
+    public User(String name, String lastName, int personalId, String phoneNumber, int age) {
+        this.name = name;
+        this.lastName = lastName;
+        this.personalId = personalId;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
+    }
+
+
+
+
     //Getters and Setters
 
     /**
