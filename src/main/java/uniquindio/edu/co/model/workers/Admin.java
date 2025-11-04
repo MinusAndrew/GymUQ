@@ -1,6 +1,8 @@
 package uniquindio.edu.co.model.workers;
-import uniquindio.edu.co.model.*;
-import java.util.List;
+import uniquindio.edu.co.model.Gym;
+import uniquindio.edu.co.model.Membership;
+import uniquindio.edu.co.model.Session;
+import uniquindio.edu.co.model.Worker;
 
 public class Admin extends Worker {
     /**
@@ -19,40 +21,87 @@ public class Admin extends Worker {
         super(name, lastName, personalId, phoneNumber, age, theMembership, theUserSession, password);
     }
 
-    /**
-     * Method that add a trainer in the gym
-     * @param trainer to add
-     * @param gym
-     */
-    public void registerTrainer(Trainer trainer,Gym gym){
-        List<User> userList = gym.getUsersList();
-        userList.add(trainer);
-        gym.setUsersList(userList);
-    }
-
-    public void modifyTrainer(Trainer trainer,Gym gym){
-
-    }
 
     /**
-     * Method that remove a Trainer from the gym
-     * @param trainer to remove
-     * @param gym
+     * Adds the trainer to a Specified Gym
+     * @param gym the gym which the trainer will be added.
+     * @param trainer the trainer that will be added to the gym.
      */
-    public void removeTrainer(Trainer trainer,Gym gym){
-        List<User> userList = gym.getUsersList();
-        userList.remove(trainer);
-        gym.setUsersList(userList);
+    public void registerTrainer(Gym gym, Trainer trainer){
+        gym.getTrainersList().add(trainer);
+    }
+
+     /*
+    These methods were made like this with the only and only the
+    purpose of getting JavaFX up ASAP so I could just call them whenever
+    I need it to.
+     */
+
+    /**
+     * Modifies a trainer's age.
+     * @param trainer whose age will change
+     * @param age new age of the trainer
+     */
+    public void modifyTrainerAge(Trainer trainer, int age){
+        trainer.setAge(age);
     }
 
     /**
-     * Method that assign a Trainer in a Session
-     * @param trainer to assign
-     * @param session
+     * Modifies a trainer's name.
+     * @param trainer whose name will change.
+     * @param name new name of the trainer.
      */
-    public void assignTrainer(Trainer trainer,Session session){
-        List<Trainer> trainerList = session.getTrainersList();
-        trainerList.add(trainer);
-        session.setTrainersList(trainerList);
+    public void modifyTrainerName(Trainer trainer, String name){
+        trainer.setName(name);
     }
+
+
+    /**
+     * Modifies a trainer's last name.
+     * @param trainer whose last name will change.
+     * @param lastName new last name of the trainer.
+     */
+    public void modifyTrainerLastName(Trainer trainer, String lastName){
+        trainer.setLastName(lastName);
+    }
+
+
+    /**
+     * Modifies a trainer's personal id.
+     * @param trainer whose personal id will change.
+     * @param personalId the trainer new personal id.
+     */
+    public void modifyTrainerPersonalId(Trainer trainer, int personalId){
+        trainer.setPersonalId(personalId);
+    }
+
+    /**
+     * Modifies a trainer's phone number.
+     * @param trainer whose phone number will change
+     * @param phoneNumber the new phone number of the trainer
+     */
+    public void modifyTrainerPhoneNumber(Trainer trainer, String phoneNumber){
+        trainer.setPhoneNumber(phoneNumber);
+    }
+
+    /**
+     * Removes a trainer from its gym's list.
+     * @param gym the gym we are removing the trainer from.
+     * @param trainer the trainer that will be removed.
+     */
+    public void removeTrainer(Gym gym, Trainer trainer){
+        gym.getTrainersList().remove(trainer);
+    }
+
+    /**
+     *  Assigns a trainer to a Session (class).
+     * @param session the session that will be assigned.
+     * @param trainer the trainer that will be added to a class.
+     */
+    public void assignTrainer(Session session, Trainer trainer){
+        trainer.setTheUserSession(session);
+        session.getTrainersList().add(trainer);
+    }
+
+
 }

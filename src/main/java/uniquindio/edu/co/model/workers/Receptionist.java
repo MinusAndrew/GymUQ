@@ -32,9 +32,9 @@ public class Receptionist extends Worker {
     }
 
     /**
-     * Method that assign a MembershipType to a User
-     * @param user which we are going to assign the MembershipType
-     * @param membershipType to add
+     * Method that assigns a MembershipType to the User.
+     * @param user which we are going to assign the MembershipType.
+     * @param membershipType to add.
      */
     public void assignMembership(User user, MembershipType membershipType){
         Membership membership = user.getTheMembership();
@@ -43,7 +43,7 @@ public class Receptionist extends Worker {
     }
 
     /**
-     * Method that add a user in a Session
+     * Method that adds a user in a Session.
      * @param user to add
      * @param session to add the user
      */
@@ -54,10 +54,10 @@ public class Receptionist extends Worker {
     }
 
     /**
-     * Method that check if the User can access the gym
+     * Method that checks if a User can access the gym.
      * @param id of the User
      * @param gym which we are going to search the User
-     * @return the User Membership Status
+     * @return the User Membership Status.
      */
     public boolean checkMembership(int id,Gym gym){
         User user = gym.searchUserByPersonalId(id);
