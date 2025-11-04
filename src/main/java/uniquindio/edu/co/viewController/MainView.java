@@ -51,10 +51,19 @@ public class MainView {
     }
 
     public void assignMembershipC(ActionEvent event){
-
-
-
-
+        try {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/AssignMenu.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            RegisterView registerView = fxmlLoader.getController();
+            registerView.setTheGym(theGym);
+            stage.setResizable(false);
+            stage.setTitle("Hello!");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setTheGym(Gym theGym) {
