@@ -12,6 +12,6 @@ public class Individual extends User {
      * @param theMembership of the user
      */
     public Individual(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership) {
-        super(name, lastName, personalId, phoneNumber, age, theMembership);
+        super(name, lastName, personalId, phoneNumber, age, theMembership,null);
     }
 }

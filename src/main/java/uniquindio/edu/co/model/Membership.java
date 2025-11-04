@@ -3,12 +3,14 @@ package uniquindio.edu.co.model;
 import uniquindio.edu.co.model.enums.MembershipPlan;
 import uniquindio.edu.co.model.enums.MembershipType;
 
+import java.time.LocalDate;
+
 public class Membership {
 
     //Attributes
     private int cost;
-    private final String startDate;
-    private final String endDate;
+    private final LocalDate startDate;
+    private final LocalDate endDate;
     boolean status;
 
     //Relationships
@@ -29,7 +31,7 @@ public class Membership {
      * @param plan of the membership
      * @param type of the membership
      */
-    public Membership(int cost, String startDate, String endDate, boolean status, User theUser, MembershipPlan plan, MembershipType type) {
+    public Membership(int cost, LocalDate startDate, LocalDate endDate, boolean status, User theUser, MembershipPlan plan, MembershipType type) {
         this.cost = cost;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -61,7 +63,7 @@ public class Membership {
      * Gets the date in which the membership starts.
      * @return date in which the membership starts
      */
-    public String getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
@@ -69,7 +71,7 @@ public class Membership {
      * Gets the date in which the membership ends.
      * @return the date in which the membership ends
      */
-    public String getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
