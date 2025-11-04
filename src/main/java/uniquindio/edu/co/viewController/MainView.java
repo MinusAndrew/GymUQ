@@ -28,10 +28,6 @@ public class MainView {
         registerView.start(menuStage);
 
          */
-
-        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-        errorAlert.setContentText("No se ha registrado el usuario, \nverifique la informacion y el tipo de dato dado.");
-
         try {
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/registerMenu.fxml"));
@@ -42,8 +38,8 @@ public class MainView {
             stage.setTitle("Hello!");
             stage.setScene(scene);
             stage.show();
-        } catch (Exception e) {
-            errorAlert.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

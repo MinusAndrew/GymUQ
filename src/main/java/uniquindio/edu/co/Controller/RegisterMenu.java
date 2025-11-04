@@ -11,7 +11,6 @@ public class RegisterMenu {
         theGym.registerUser(user);
     }
 
-
     public void setTheGym(Gym theGym) {
         this.theGym = theGym;
     }

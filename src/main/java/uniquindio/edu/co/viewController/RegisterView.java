@@ -10,10 +10,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import uniquindio.edu.co.Controller.RegisterMenu;
 import uniquindio.edu.co.model.*;
-import uniquindio.edu.co.model.workers.Trainer;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -36,6 +37,11 @@ public class RegisterView implements Initializable {
     @FXML
     private ChoiceBox<String> userType;
 
+    @FXML
+    private AnchorPane scenePane;
+
+    Stage currentWindow;
+
     private String[] userTypes = {"Estudiante", "Trabajador", "Externo"};
 
     @Override
@@ -47,6 +53,9 @@ public class RegisterView implements Initializable {
 
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
         errorAlert.setContentText("No se ha registrado el usuario, \nverifique que los datos dados sean correctos");
+
+
+        currentWindow = (Stage) scenePane.getScene().getWindow();
 
         try {
             int age = grabAge();
@@ -68,14 +77,17 @@ public class RegisterView implements Initializable {
                 case ("Estudiante"):
                     newUser = new Student(name, lastName, personalId, phoneNumber, age);
                     registerMenu.registerUser(newUser);
+                    currentWindow.close();
                     break;
                 case ("Trabajador"):
                     newUser = new Worker(name, lastName, personalId, phoneNumber, age);
                     registerMenu.registerUser(newUser);
+                    currentWindow.close();
                     break;
                 case ("Externo"):
                     newUser = new Individual(name, lastName, personalId, phoneNumber, age);
                     registerMenu.registerUser(newUser);
+                    currentWindow.close();
                     break;
             }
             succsessAlert.show();

@@ -12,9 +12,6 @@ import java.io.IOException;
 public class Application extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
-
-
-
         try {
             Gym gym = new Gym("GymUQ", 727);
             FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/uniquindio/edu/co/mainMenu.fxml"));
@@ -25,7 +22,7 @@ public class Application extends javafx.application.Application {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
 
     }
