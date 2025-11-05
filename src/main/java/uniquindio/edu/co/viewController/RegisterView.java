@@ -42,7 +42,7 @@ public class RegisterView implements Initializable {
 
     Stage currentWindow;
 
-    private String[] userTypes = {"Estudiante", "Trabajador", "Externo"};
+    private final String[] userTypes = {"Estudiante", "Trabajador", "Externo"};
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
