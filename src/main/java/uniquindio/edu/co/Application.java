@@ -4,8 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import uniquindio.edu.co.model.Gym;
-import uniquindio.edu.co.viewController.MainView;
-import uniquindio.edu.co.viewController.RegisterView;
+import uniquindio.edu.co.viewController.*;
 
 import java.io.IOException;
 
