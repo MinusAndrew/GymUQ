@@ -3,6 +3,9 @@ package uniquindio.edu.co;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import uniquindio.edu.co.model.*;
+import uniquindio.edu.co.model.enums.MembershipPlan;
+import uniquindio.edu.co.model.enums.MembershipType;
 
 public class App {
     public static void main(String[] args) {
@@ -26,9 +29,14 @@ public class App {
         listDates.add(day6);
         listDates.add(day7);
 
-        List<LocalDate> idk = getDateIDK(listDates, hoy);
+        //List<LocalDate> idk = getDateIDK(listDates, hoy);
 
-        System.out.println(idk);
+        //System.out.println(idk);
+
+        User user = new User("Juan","Castaño",109872,"311000000",17);
+        Membership membership = new Membership(80000,user, MembershipPlan.BASIC, MembershipType.MONTHLY);
+
+        System.out.println(membership);
 
     }
     public static List<LocalDate> getDateIDK (List<LocalDate> listDates, LocalDate hoy){

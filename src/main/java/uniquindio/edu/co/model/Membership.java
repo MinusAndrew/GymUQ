@@ -24,22 +24,36 @@ public class Membership {
      * Membership class Constructor
      *
      * @param cost of the membership
-     * @param startDate of the membership
-     * @param endDate of the membership
-     * @param status of the membership
      * @param theUser of the membership
      * @param plan of the membership
      * @param type of the membership
      */
-    public Membership(int cost, LocalDate startDate, LocalDate endDate, boolean status, User theUser, MembershipPlan plan, MembershipType type) {
+    public Membership(int cost, User theUser, MembershipPlan plan, MembershipType type) {
         this.cost = cost;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.status = status;
         this.theUser = theUser;
         this.plan = plan;
+        assert type != null;
         this.type = type;
+        this.startDate = LocalDate.now();
+        this.endDate = startDate.plusMonths(monthsPerType());
+        this.status = startDate.isBefore(endDate);
     }
+
+
+    int monthsPerType(){
+        MembershipType memb = getType();
+        if(memb == MembershipType.MONTHLY){
+            return 1;
+        } else if(memb == MembershipType.QUARTERLY){
+            return 3;
+        } else if(memb == MembershipType.ANNUALLY){
+            return 12;
+        } else {
+            return 0;
+        }
+    }
+
+
 
     /**
      * Gets cost of the membership.
@@ -144,6 +158,4 @@ public class Membership {
     public void setType(MembershipType type) {
         this.type = type;
     }
-
-
 }
