@@ -32,7 +32,8 @@ public class Gym {
      * @param user to add
      */
     public void registerUser(User user){
-        usersList.add(user);
+        assert !verifyUserPersonalId(user) : "User already exists";
+            usersList.add(user);
     }
 
     /**
@@ -49,6 +50,17 @@ public class Gym {
             }
         }
         return user;
+    }
+
+    public boolean verifyUserPersonalId(User user){
+        boolean flag = false;
+        for(User u : usersList){
+            if(user.getPersonalId() == u.getPersonalId()){
+                flag = true;
+                break;
+            }
+        }
+        return flag;
     }
 
     //Getters and Setters

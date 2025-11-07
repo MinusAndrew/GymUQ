@@ -33,7 +33,7 @@ public class Membership {
      */
     public Membership(int cost, LocalDate startDate, LocalDate endDate, boolean status, User theUser, MembershipPlan plan, MembershipType type) {
         this.cost = cost;
-        this.startDate = startDate;
+        this.startDate = LocalDate.now();
         this.endDate = endDate;
         this.status = status;
         this.theUser = theUser;

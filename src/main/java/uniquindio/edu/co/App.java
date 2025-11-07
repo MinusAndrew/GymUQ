@@ -3,6 +3,7 @@ package uniquindio.edu.co;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import uniquindio.edu.co.model.*;
 
 public class App {
     public static void main(String[] args) {
@@ -26,9 +27,11 @@ public class App {
         listDates.add(day6);
         listDates.add(day7);
 
-        List<LocalDate> idk = getDateIDK(listDates, hoy);
+        //List<LocalDate> idk = getDateIDK(listDates, hoy);
 
-        System.out.println(idk);
+        //System.out.println(idk);
+
+        User user = new User("Juan","Castaño",109872,"311000000",-1);
 
     }
     public static List<LocalDate> getDateIDK (List<LocalDate> listDates, LocalDate hoy){
