@@ -36,6 +36,7 @@ public class Session {
     }
 
     public void addUserToSession(User user){
+        assert sessionUsersList.size() < maxCapacity;
         sessionUsersList.add(user);
     }
 

@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import uniquindio.edu.co.model.*;
+import uniquindio.edu.co.model.enums.MembershipPlan;
+import uniquindio.edu.co.model.enums.MembershipType;
 
 public class App {
     public static void main(String[] args) {
@@ -31,7 +33,10 @@ public class App {
 
         //System.out.println(idk);
 
-        User user = new User("Juan","Castaño",109872,"311000000",-1);
+        User user = new User("Juan","Castaño",109872,"311000000",17);
+        Membership membership = new Membership(80000,user, MembershipPlan.BASIC, MembershipType.MONTHLY);
+
+        System.out.println(membership);
 
     }
     public static List<LocalDate> getDateIDK (List<LocalDate> listDates, LocalDate hoy){
