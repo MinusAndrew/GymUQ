@@ -6,6 +6,11 @@ import java.util.List;
 import uniquindio.edu.co.model.*;
 import uniquindio.edu.co.model.enums.MembershipPlan;
 import uniquindio.edu.co.model.enums.MembershipType;
+import uniquindio.edu.co.model.workers.Receptionist;
+
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
 
 public class App {
     public static void main(String[] args) {
@@ -33,8 +38,13 @@ public class App {
 
         //System.out.println(idk);
 
+        Receptionist receptionist = new Receptionist("jaco","londono",1128,"311",18,"Switch");
         User user = new User("Juan","Castaño",109872,"311000000",17);
         Membership membership = new Membership(80000,user, MembershipPlan.BASIC, MembershipType.MONTHLY);
+
+        receptionist.assignMembership(user,membership);
+
+        membership.setStartDate(membership.getStartDate().plusMonths(12));
 
         System.out.println(membership);
 
@@ -48,4 +58,5 @@ public class App {
         }
         return idk;
     }
+
 }

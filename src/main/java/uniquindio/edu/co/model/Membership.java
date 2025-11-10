@@ -9,8 +9,8 @@ public class Membership {
 
     //Attributes
     private int cost;
-    private final LocalDate startDate;
-    private final LocalDate endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     boolean status;
 
     //Relationships
@@ -60,6 +60,7 @@ public class Membership {
      * @return cost of the membership
      */
     public int getCost() {
+        this.status = startDate.isBefore(endDate);
         return cost;
     }
 
@@ -69,6 +70,7 @@ public class Membership {
      * @param cost the membership cost.
      */
     public void setCost(int cost) {
+        this.status = startDate.isBefore(endDate);
         this.cost = cost;
     }
 
@@ -78,7 +80,13 @@ public class Membership {
      * @return date in which the membership starts
      */
     public LocalDate getStartDate() {
+        this.status = startDate.isBefore(endDate);
         return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.status = startDate.isBefore(endDate);
+        this.startDate=startDate;
     }
 
     /**
@@ -86,6 +94,7 @@ public class Membership {
      * @return the date in which the membership ends
      */
     public LocalDate getEndDate() {
+        this.status = startDate.isBefore(endDate);
         return endDate;
     }
 
@@ -95,6 +104,7 @@ public class Membership {
      * @return the membership status.
      */
     public boolean isStatus() {
+        this.status = startDate.isBefore(endDate);
         return status;
     }
 
@@ -103,6 +113,7 @@ public class Membership {
      * @param status the status of the membership.
      */
     public void setStatus(boolean status) {
+        this.status = startDate.isBefore(endDate);
         this.status = status;
     }
 
@@ -112,6 +123,7 @@ public class Membership {
      * @return returns theUser of the membership.
      */
     public User getTheUser() {
+        this.status = startDate.isBefore(endDate);
         return theUser;
     }
 
@@ -121,6 +133,7 @@ public class Membership {
      * @param theUser the user of the membership.
      */
     public void setTheUser(User theUser) {
+        this.status = startDate.isBefore(endDate);
         this.theUser = theUser;
     }
 
@@ -130,6 +143,7 @@ public class Membership {
      * @return returns the membership plan.
      */
     public MembershipPlan getPlan() {
+        this.status = startDate.isBefore(endDate);
         return plan;
     }
 
@@ -139,6 +153,7 @@ public class Membership {
      * @param plan the plan of the membership.
      */
     public void setPlan(MembershipPlan plan) {
+        this.status = startDate.isBefore(endDate);
         this.plan = plan;
     }
 
@@ -147,6 +162,7 @@ public class Membership {
      * @return returns the membership type.
      */
     public MembershipType getType() {
+        this.status = startDate.isBefore(endDate);
         return type;
     }
 
@@ -156,6 +172,23 @@ public class Membership {
      * @param type the membership type.
      */
     public void setType(MembershipType type) {
+        this.status = startDate.isBefore(endDate);
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        this.status = startDate.isBefore(endDate);
+        return "Membership{" +
+                "cost=" + cost +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", status=" + status +
+                ", theUser=" + theUser +
+                ", plan=" + plan +
+                ", type=" + type +
+                '}';
+    }
+
+
 }

@@ -1,10 +1,8 @@
 package uniquindio.edu.co.model.workers;
 import uniquindio.edu.co.model.Gym;
-import uniquindio.edu.co.model.Membership;
-import uniquindio.edu.co.model.Session;
-import uniquindio.edu.co.model.Worker;
+import uniquindio.edu.co.model.Staff;
 
-public class Admin extends Worker {
+public class Admin extends Staff {
     /**
      * Admin class Constructor
      *
@@ -13,12 +11,11 @@ public class Admin extends Worker {
      * @param personalId     of the Admin
      * @param phoneNumber    of the Admin
      * @param age            of the Admin
-     * @param theMembership  of the Admin
-     * @param theUserSession of the Admin
      * @param password       of the Admin
      */
-    public Admin(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, Session theUserSession, String password) {
-        super(name, lastName, personalId, phoneNumber, age, theMembership, theUserSession, password);
+    public Admin(String name, String lastName, int personalId, String phoneNumber, int age, String password) {
+        super(name, lastName, personalId, phoneNumber, age, "A"+password);
+
     }
 
 
@@ -98,10 +95,12 @@ public class Admin extends Worker {
      * @param session the session that will be assigned.
      * @param trainer the trainer that will be added to a class.
      */
+
+    /*
     public void assignTrainer(Session session, Trainer trainer){
         trainer.setTheUserSession(session);
         session.getTrainersList().add(trainer);
     }
-
+    */
 
 }
