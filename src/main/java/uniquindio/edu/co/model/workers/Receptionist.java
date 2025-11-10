@@ -3,7 +3,7 @@ import uniquindio.edu.co.model.*;
 import uniquindio.edu.co.model.enums.*;
 import java.util.List;
 
-public class Receptionist extends Worker {
+public class Receptionist extends Staff {
     /**
      * Receptionist class Constructor
      *
@@ -12,12 +12,10 @@ public class Receptionist extends Worker {
      * @param personalId     of the Receptionist
      * @param phoneNumber    of the Receptionist
      * @param age            of the Receptionist
-     * @param theMembership  of the Receptionist
-     * @param theUserSession of the Receptionist
      * @param password       of the Receptionist
      */
-    public Receptionist(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, Session theUserSession, String password) {
-        super(name, lastName, personalId, phoneNumber, age, theMembership, theUserSession, password);
+    public Receptionist(String name, String lastName, int personalId, String phoneNumber, int age, String password) {
+        super(name, lastName, personalId, phoneNumber, age, "R"+password);
     }
 
     /**
@@ -36,9 +34,18 @@ public class Receptionist extends Worker {
      * @param user which we are going to assign the MembershipType.
      * @param membershipType to add.
      */
-    public void assignMembership(User user, MembershipType membershipType){
+    public void assignMembershipType(User user, MembershipType membershipType){
         Membership membership = user.getTheMembership();
         membership.setType(membershipType);
+        user.setTheMembership(membership);
+    }
+
+    /**
+     * Method that assigns a Membership to the User.
+     * @param user which we are going to assign the Membership.
+     * @param membership to add.
+     */
+    public void assignMembership(User user, Membership membership){
         user.setTheMembership(membership);
     }
 

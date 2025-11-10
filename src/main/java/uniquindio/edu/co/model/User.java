@@ -1,5 +1,4 @@
 package uniquindio.edu.co.model;
-
 public class User {
 
     //Attributes
@@ -30,6 +29,7 @@ public class User {
         this.lastName = lastName;
         this.personalId = personalId;
         this.phoneNumber = phoneNumber;
+        assert age > 0 : "Cannot add a user with negative age";
         this.age = age;
         this.theMembership = theMembership;
         this.theUserSession = theUserSession;
@@ -40,6 +40,7 @@ public class User {
         this.lastName = lastName;
         this.personalId = personalId;
         this.phoneNumber = phoneNumber;
+        assert age > 0 : "Cannot add a user with negative age";
         this.age = age;
     }
 

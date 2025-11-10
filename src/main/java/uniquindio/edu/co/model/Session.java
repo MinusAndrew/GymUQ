@@ -3,13 +3,14 @@ package uniquindio.edu.co.model;
 import uniquindio.edu.co.model.workers.Trainer;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
 
 public class Session {
 
     //Attributes
     private int maxCapacity;
     private String type;
-    private String schedule;
+    private LocalDate schedule;
     private String name;
 
     // Relationships
@@ -24,7 +25,7 @@ public class Session {
      * @param schedule of the Session
      * @param name of the Session
      */
-    public Session(int maxCapacity, String type, String schedule, String name) {
+    public Session(int maxCapacity, String type, LocalDate schedule, String name) {
         this.maxCapacity = maxCapacity;
         this.type = type;
         this.schedule = schedule;
@@ -32,6 +33,11 @@ public class Session {
         this.trainersList=new ArrayList<>();
         this.sessionUsersList=new ArrayList<>();
 
+    }
+
+    public void addUserToSession(User user){
+        assert sessionUsersList.size() < maxCapacity;
+        sessionUsersList.add(user);
     }
 
     public int getMaxCapacity() {
@@ -50,11 +56,11 @@ public class Session {
         this.type = type;
     }
 
-    public String getSchedule() {
+    public LocalDate getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(String schedule) {
+    public void setSchedule(LocalDate schedule) {
         this.schedule = schedule;
     }
 

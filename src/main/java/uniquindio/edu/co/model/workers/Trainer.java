@@ -1,7 +1,7 @@
 package uniquindio.edu.co.model.workers;
 import uniquindio.edu.co.model.*;
 
-public class Trainer extends Worker {
+public class Trainer extends Staff {
 
     //Relationships
     //private Session theTrainerSession;
@@ -15,12 +15,10 @@ public class Trainer extends Worker {
      * @param personalId     of the Trainer
      * @param phoneNumber    of the Trainer
      * @param age            of the Trainer
-     * @param theMembership  of the Trainer
-     * @param theUserSession of the Trainer
      * @param password       of the Trainer
      */
-    public Trainer(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, Session theUserSession, String password) {
-        super(name, lastName, personalId, phoneNumber, age, theMembership, theUserSession, password);
+    public Trainer(String name, String lastName, int personalId, String phoneNumber, int age, String password) {
+        super(name, lastName, personalId, phoneNumber, age, "T"+password);
     }
 
 

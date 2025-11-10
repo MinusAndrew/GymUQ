@@ -14,6 +14,7 @@ public class Gym {
     //Relationships
     private List<User> usersList;
     private List<Trainer> trainersList;
+    private List<Staff> staffList;
 
     /**
      * Gym class Constructor
@@ -25,6 +26,23 @@ public class Gym {
         this.id = id;
         this.usersList = new ArrayList<>();
         this.trainersList = new ArrayList<>();
+        this.staffList = new ArrayList<>();
+    }
+
+
+    public boolean login(String name, String password){
+        boolean flag = false;
+        for(Staff worker : staffList){
+            if(worker.getName().equals(name)||worker.getPassword().equals(password)){
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    public void registerStaff(Staff staff){
+        staffList.add(staff);
     }
 
     /**
@@ -32,6 +50,7 @@ public class Gym {
      * @param user to add
      */
     public void registerUser(User user){
+        assert !verifyUserPersonalId(user) : "User already exists";
         usersList.add(user);
     }
 
@@ -49,6 +68,17 @@ public class Gym {
             }
         }
         return user;
+    }
+
+    public boolean verifyUserPersonalId(User user){
+        boolean flag = false;
+        for(User u : usersList){
+            if(user.getPersonalId() == u.getPersonalId()){
+                flag = true;
+                break;
+            }
+        }
+        return flag;
     }
 
     //Getters and Setters
