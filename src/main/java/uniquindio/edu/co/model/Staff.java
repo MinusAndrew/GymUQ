@@ -1,6 +1,22 @@
 package uniquindio.edu.co.model;
+import javax.crypto.*;
+import java.nio.charset.StandardCharsets;
+import java.security.NoSuchAlgorithmException;
 
 public class Staff {
+
+    public static final KeyGenerator keygenerator;
+    public static final Cipher desCipher;
+    static {
+        try {
+            keygenerator = KeyGenerator.getInstance("AES");
+            desCipher = Cipher.getInstance("AES");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static final SecretKey myDesKey = keygenerator.generateKey();
+
 
     //Attributes
     private String name;
@@ -26,7 +42,25 @@ public class Staff {
         this.personalId = personalId;
         this.phoneNumber = phoneNumber;
         this.age = age;
-        this.password = password;
+        this.password = encrypt(password);
+    }
+
+
+    static String encrypt(String password){
+        try{
+            byte[] passwordBytes = password.getBytes(StandardCharsets.UTF_8);
+            desCipher.init(Cipher.ENCRYPT_MODE, myDesKey);
+            byte[] textEncrypted = desCipher.doFinal(passwordBytes);
+            password = new String(textEncrypted);
+
+        } catch (Exception e) {
+            System.out.println("Exception");
+        }
+        return password;
+    }
+
+    public boolean comparePasswords(String password){
+        return encrypt(password).equals(this.password);
     }
 
     public String getName() {
@@ -77,12 +111,37 @@ public class Staff {
         return password;
     }
 
-
     /**
      * Safer than the last one is for sure
      * @param password the password given by the Staff.
      */
     public void setPassword(String password) {
-        this.password = password;
+        this.password = encrypt(password);
+    }
+
+    /*
+     * static String desencryptPassword(String password){
+        try{
+            byte[] passwordBytes = password.getBytes(StandardCharsets.UTF_8);
+            desCipher.init(Cipher.DECRYPT_MODE, myDesKey);
+            byte[] textDecrypted = desCipher.doFinal(passwordBytes);
+            password = new String(textDecrypted);
+        } catch (Exception e) {
+            System.out.println("Exception");
+        }
+        return password;
+     }
+     */
+
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", personalId=" + personalId +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", age=" + age +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
