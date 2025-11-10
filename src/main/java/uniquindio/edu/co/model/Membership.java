@@ -9,7 +9,7 @@ public class Membership {
 
     //Attributes
     private int cost;
-    private LocalDate startDate;
+    private final LocalDate startDate;
     private LocalDate endDate;
     boolean status;
 
@@ -54,6 +54,10 @@ public class Membership {
     }
 
 
+    public void setEndDate (LocalDate date){
+        this.endDate = date;
+    }
+
 
     /**
      * Gets cost of the membership.
@@ -82,11 +86,6 @@ public class Membership {
     public LocalDate getStartDate() {
         this.status = startDate.isBefore(endDate);
         return startDate;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate=startDate;
-        this.status = startDate.isBefore(endDate);
     }
 
     /**
@@ -153,7 +152,6 @@ public class Membership {
      * @return returns the membership type.
      */
     public MembershipType getType() {
-        this.status = startDate.isBefore(endDate);
         return type;
     }
 

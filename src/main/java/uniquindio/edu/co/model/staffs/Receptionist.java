@@ -1,4 +1,4 @@
-package uniquindio.edu.co.model.workers;
+package uniquindio.edu.co.model.staffs;
 import uniquindio.edu.co.model.*;
 import uniquindio.edu.co.model.enums.*;
 import java.util.List;
@@ -47,6 +47,7 @@ public class Receptionist extends Staff {
      */
     public void assignMembership(User user, Membership membership){
         user.setTheMembership(membership);
+        membership.setTheUser(user);
     }
 
     /**

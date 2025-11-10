@@ -28,7 +28,7 @@ class AppTest {
     public void verificarSiLaSesionEstaLlena(){
         Session session = new Session (2,"Yoga", LocalDate.of(2025,10,18),"Yoganda");
         User user = new User("Juan", "Castaño",109872,"311000000",18);
-        User user1 = new User("Esteban","Gutierrez",109872,"323000000",17);
+        User user1 = new User("Esteban","Gutierrez",109802,"323000000",17);
         User user2 = new User("jaco","davila",1128,"324",18);
         session.addUserToSession(user);
         session.addUserToSession(user1);

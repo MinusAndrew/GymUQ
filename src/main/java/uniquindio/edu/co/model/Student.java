@@ -12,8 +12,8 @@ public class Student extends User {
      * @param theMembership  of the Student
      * @param theUserSession of the Student
      */
-    public Student(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, Session theUserSession) {
-        super(name, lastName, personalId, phoneNumber, age, theMembership, theUserSession);
+    public Student(String name, String lastName, int personalId, String phoneNumber, int age, String email, Membership theMembership, Session theUserSession) {
+        super(name, lastName, personalId, phoneNumber, age, email, theMembership, theUserSession);
     }
 
     public Student(String name, String lastName, int personalId, String phoneNumber, int age) {
