@@ -9,7 +9,7 @@ public class Membership {
 
     //Attributes
     private int cost;
-    private LocalDate startDate;
+    private final LocalDate startDate;
     private LocalDate endDate;
     boolean status;
 
@@ -54,6 +54,10 @@ public class Membership {
     }
 
 
+    public void setEndDate (LocalDate date){
+        this.endDate = date;
+    }
+
 
     /**
      * Gets cost of the membership.
@@ -84,11 +88,6 @@ public class Membership {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
-        this.status = startDate.isBefore(endDate);
-        this.startDate=startDate;
-    }
-
     /**
      * Gets the date in which the membership ends.
      * @return the date in which the membership ends
@@ -108,15 +107,6 @@ public class Membership {
         return status;
     }
 
-    /**
-     * Sets the membership status.
-     * @param status the status of the membership.
-     */
-    public void setStatus(boolean status) {
-        this.status = startDate.isBefore(endDate);
-        this.status = status;
-    }
-
 
     /**
      * Gets the user.
@@ -133,8 +123,8 @@ public class Membership {
      * @param theUser the user of the membership.
      */
     public void setTheUser(User theUser) {
-        this.status = startDate.isBefore(endDate);
         this.theUser = theUser;
+        this.status = startDate.isBefore(endDate);
     }
 
 
@@ -153,8 +143,8 @@ public class Membership {
      * @param plan the plan of the membership.
      */
     public void setPlan(MembershipPlan plan) {
-        this.status = startDate.isBefore(endDate);
         this.plan = plan;
+        this.status = startDate.isBefore(endDate);
     }
 
     /**
@@ -162,7 +152,6 @@ public class Membership {
      * @return returns the membership type.
      */
     public MembershipType getType() {
-        this.status = startDate.isBefore(endDate);
         return type;
     }
 
@@ -172,8 +161,8 @@ public class Membership {
      * @param type the membership type.
      */
     public void setType(MembershipType type) {
-        this.status = startDate.isBefore(endDate);
         this.type = type;
+        this.status = startDate.isBefore(endDate);
     }
 
     @Override

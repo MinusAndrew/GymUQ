@@ -7,6 +7,7 @@ public class User {
     private int personalId;
     private String phoneNumber;
     private int age;
+    private String email;
 
     //Relationships
     private Membership theMembership;
@@ -20,17 +21,19 @@ public class User {
      * @param personalId of the user
      * @param phoneNumber of the user
      * @param age of the user
+     * @param email of the user
      * @param theMembership of the user
      * @param theUserSession of the user
      */
 
-    public User(String name, String lastName, int personalId, String phoneNumber, int age, Membership theMembership, Session theUserSession) {
+    public User(String name, String lastName, int personalId, String phoneNumber, int age, String email, Membership theMembership, Session theUserSession) {
         this.name = name;
         this.lastName = lastName;
         this.personalId = personalId;
         this.phoneNumber = phoneNumber;
         assert age > 0 : "Cannot add a user with negative age";
         this.age = age;
+        this.email = email;
         this.theMembership = theMembership;
         this.theUserSession = theUserSession;
     }
@@ -159,5 +162,13 @@ public class User {
      */
     public void setTheUserSession(Session theUserSession) {
         this.theUserSession = theUserSession;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

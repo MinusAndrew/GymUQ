@@ -18,5 +18,5 @@ module uniquindio.edu.co {
     exports uniquindio.edu.co.viewController;
     exports uniquindio.edu.co.model;
     exports uniquindio.edu.co.model.enums;
-    exports uniquindio.edu.co.model.workers;
+    exports uniquindio.edu.co.model.staffs;
 }

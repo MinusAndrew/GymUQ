@@ -1,6 +1,6 @@
 package uniquindio.edu.co.model;
 
-import uniquindio.edu.co.model.workers.Trainer;
+import uniquindio.edu.co.model.staffs.Trainer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +32,8 @@ public class Gym {
 
     public boolean login(String name, String password){
         boolean flag = false;
-        for(Staff worker : staffList){
-            if(worker.getName().equals(name)||worker.getPassword().equals(password)){
+        for(Staff staff : staffList){
+            if(staff.getName().equals(name) && staff.comparePasswords(password)){
                 flag = true;
                 break;
             }
