@@ -55,8 +55,8 @@ public class MainView {
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/AssignMenu.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            RegisterView registerView = fxmlLoader.getController();
-            registerView.setTheGym(theGym);
+            AssignView assignView = fxmlLoader.getController();
+            assignView.setTheGym(theGym);
             stage.setResizable(false);
             stage.setTitle("Hello!");
             stage.setScene(scene);
