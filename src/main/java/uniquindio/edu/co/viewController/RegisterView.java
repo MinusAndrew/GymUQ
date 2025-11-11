@@ -1,6 +1,7 @@
 package uniquindio.edu.co.viewController;
 
 import javafx.application.Application;
+import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -80,8 +81,8 @@ public class RegisterView implements Initializable {
                     currentWindow.close();
                     break;
                 case ("Trabajador"):
-                    newUser = new Worker(name, lastName, personalId, phoneNumber, age);
-                    registerMenu.registerUser(newUser);
+                 //   newUser = new Worker(name, lastName, personalId, phoneNumber, age);
+                    //registerMenu.registerUser(newUser);
                     currentWindow.close();
                     break;
                 case ("Externo"):
