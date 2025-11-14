@@ -1,7 +1,6 @@
 package uniquindio.edu.co.model;
 
-import uniquindio.edu.co.model.enums.MembershipPlan;
-import uniquindio.edu.co.model.enums.MembershipType;
+import uniquindio.edu.co.model.enums.*;
 
 import java.time.LocalDate;
 
@@ -64,27 +63,22 @@ public class Membership {
      * @return cost of the membership
      */
     public int getCost() {
-        this.status = startDate.isBefore(endDate);
         return cost;
     }
-
 
     /**
      * Sets new cost of the membership.
      * @param cost the membership cost.
      */
     public void setCost(int cost) {
-        this.status = startDate.isBefore(endDate);
         this.cost = cost;
     }
-
 
     /**
      * Gets the date in which the membership starts.
      * @return date in which the membership starts
      */
     public LocalDate getStartDate() {
-        this.status = startDate.isBefore(endDate);
         return startDate;
     }
 
@@ -93,30 +87,31 @@ public class Membership {
      * @return the date in which the membership ends
      */
     public LocalDate getEndDate() {
-        this.status = startDate.isBefore(endDate);
         return endDate;
     }
-
 
     /**
      * Checks for the status of the membership.
      * @return the membership status.
      */
     public boolean isStatus() {
-        this.status = startDate.isBefore(endDate);
         return status;
     }
 
+    /**
+     * Update the status of the membership
+     */
+    public void updateStatus(){
+        this.status = LocalDate.now().isBefore(endDate);
+    }
 
     /**
      * Gets the user.
      * @return returns theUser of the membership.
      */
     public User getTheUser() {
-        this.status = startDate.isBefore(endDate);
         return theUser;
     }
-
 
     /**
      * Sets the user of the membership.
@@ -124,19 +119,15 @@ public class Membership {
      */
     public void setTheUser(User theUser) {
         this.theUser = theUser;
-        this.status = startDate.isBefore(endDate);
     }
-
 
     /**
      * Gets the membership plan.
      * @return returns the membership plan.
      */
     public MembershipPlan getPlan() {
-        this.status = startDate.isBefore(endDate);
         return plan;
     }
-
 
     /**
      * Sets the plan of the membership.
@@ -144,7 +135,6 @@ public class Membership {
      */
     public void setPlan(MembershipPlan plan) {
         this.plan = plan;
-        this.status = startDate.isBefore(endDate);
     }
 
     /**
@@ -162,12 +152,10 @@ public class Membership {
      */
     public void setType(MembershipType type) {
         this.type = type;
-        this.status = startDate.isBefore(endDate);
     }
 
     @Override
     public String toString() {
-        this.status = startDate.isBefore(endDate);
         return "Membership{" +
                 "cost=" + cost +
                 ", startDate=" + startDate +

@@ -1,6 +1,6 @@
 package uniquindio.edu.co.model;
 
-import uniquindio.edu.co.model.staffs.Trainer;
+import uniquindio.edu.co.model.staffs.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
