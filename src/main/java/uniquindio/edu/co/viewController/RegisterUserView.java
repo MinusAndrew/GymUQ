@@ -1,12 +1,8 @@
 package uniquindio.edu.co.viewController;
 
-import javafx.application.Application;
-import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -17,11 +13,10 @@ import uniquindio.edu.co.Controller.RegisterMenu;
 import uniquindio.edu.co.model.*;
 
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RegisterView implements Initializable {
+public class RegisterUserView implements Initializable {
     private Gym theGym;
     @FXML
     private Button registerButton;

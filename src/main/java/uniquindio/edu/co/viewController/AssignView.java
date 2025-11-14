@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AssignView implements Initializable {
+
     private Gym theGym;
 
     @FXML
