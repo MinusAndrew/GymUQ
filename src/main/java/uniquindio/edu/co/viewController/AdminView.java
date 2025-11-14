@@ -9,10 +9,10 @@ import uniquindio.edu.co.model.Gym;
 
 import java.io.IOException;
 
-public class MainView {
+public class AdminView {
     private Gym theGym;
 
-    public MainView(Gym theGym) {
+    public AdminView(Gym theGym) {
         this.theGym = theGym;
     }
     @FXML
