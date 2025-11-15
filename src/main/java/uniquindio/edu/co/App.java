@@ -6,12 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 import uniquindio.edu.co.model.*;
-import uniquindio.edu.co.model.enums.MembershipPlan;
-import uniquindio.edu.co.model.enums.MembershipType;
-import uniquindio.edu.co.model.staffs.Receptionist;
+import uniquindio.edu.co.model.enums.*;
+import uniquindio.edu.co.model.staffs.*;
 
 public class App {
     public static void main(String[] args) {
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+
+
         Gym gym = new Gym("Uq",122);
 
         Receptionist receptionist = new Receptionist("jaco","londono",1128,"311",18,"Switch");
@@ -21,15 +23,18 @@ public class App {
         User user1 = new User("Esteban","Gutierrez",109802,"323000000",17);
 
         Membership membership1 = new Membership(40000,user1, MembershipPlan.VIP, MembershipType.ANNUALLY);
-        membership1.setEndDate(LocalDate.of(2025,5,15));
-        membership.setEndDate(LocalDate.of(2025,11,24));
+        membership1.setEndDate(LocalDate.of(2024,5,15));
+        membership.setEndDate(LocalDate.of(2027,1,24));
 
         receptionist.assignMembership(user,membership);
         receptionist.assignMembership(user1,membership1);
 
+        gym.registerUser(user);
+        gym.registerUser(user1);
+
         //membership.setStartDate(membership.getStartDate().plusMonths(12));
 
-        System.out.println(receptionist);
+        //System.out.println(receptionist);
         gym.registerStaff(receptionist);
         boolean yes = gym.login("jaco","RSwitch");
         boolean no = gym.login("jaco","Switch");
@@ -39,21 +44,33 @@ public class App {
         list.add(membership);
         list.add(membership1);
 
+
+        Runnable dailyTask = () ->  {
+            gym.checkMemberships();
+            System.out.println("Hallo");
+        };
+
+
+        //scheduler.scheduleAtFixedRate(dailyTask, 0, 1, TimeUnit.DAYS);
+        gym.checkMemberships();
+        System.out.println(receptionist.checkMembership(109802,gym));
+
+
         //System.out.println(reporteMembresias(list));
 
-        System.out.println(receptionist.getPassword() +"\n"+yes+"\n"+no);
+        //System.out.println(receptionist.getPassword() +"\n"+yes+"\n"+no);
 
         //System.out.println(membership);
 
 
 
     }
-    public static boolean expiredMemberships (Membership memb){
+    public static boolean expiredMembership (Membership memb){
         LocalDate hoy = LocalDate.now();
-        return memb.getEndDate().isAfter(hoy);
+        return memb.getEndDate().isBefore(hoy);
     }
 
-    public static boolean toExpireMemberships (Membership memb){
+    public static boolean toExpireMembership (Membership memb){
         LocalDate hoy = LocalDate.now();
         LocalDate toExp = LocalDate.now().plusDays(15);
         return memb.getEndDate().isBefore(toExp) && memb.getEndDate().isAfter(hoy);
@@ -70,15 +87,16 @@ public class App {
             String nombreUsario = usuario.getName();
             int idUsuario = usuario.getPersonalId();
             LocalDate fechaFinal = memb.getEndDate();
-            if(toExpireMemberships(memb)){
-                int caducaEn = fechaFinal.compareTo(hoy);
+            if (toExpireMembership(memb)){
+                long caducaEn = ChronoUnit.DAYS.between(hoy,fechaFinal);
                 reportePorExpirar.append("La membresia del usuario: ").append(nombreUsario).append(" con documento ").append(idUsuario).append(" caduca en ").append(caducaEn).append(" dias\n");
-            } else {
+            }
+            if (expiredMembership(memb)) {
                 long caducoHace = ChronoUnit.DAYS.between(fechaFinal,hoy);
-                reporteExpirados.append("La membresia del usuario: ").append(nombreUsario).append(" con documento ").append(idUsuario).append(" CADUCO hace ").append(caducoHace).append(" dias\n");
+                reporteExpirados.append("La membresia del usuario: ").append(nombreUsario).append(" con documento ").append(idUsuario).append(" caduco hace ").append(caducoHace).append(" dias\n");
             }
         }
-        return reportePorExpirar + reporteExpirados.toString();
+        return "Membresias por caducar: \n" + reportePorExpirar + "Membresias caducadas: \n" + reporteExpirados.toString();
     }
 
     /*

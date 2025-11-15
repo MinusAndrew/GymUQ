@@ -1,6 +1,5 @@
 package uniquindio.edu.co.model.staffs;
-import uniquindio.edu.co.model.Gym;
-import uniquindio.edu.co.model.Staff;
+import uniquindio.edu.co.model.*;
 
 public class Admin extends Staff {
     /**

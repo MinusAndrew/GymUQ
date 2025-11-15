@@ -1,6 +1,9 @@
 package uniquindio.edu.co.model.staffs;
 import uniquindio.edu.co.model.*;
 import uniquindio.edu.co.model.enums.*;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 public class Receptionist extends Staff {
@@ -67,10 +70,14 @@ public class Receptionist extends Staff {
      * @param gym which we are going to search the User
      * @return the User Membership Status.
      */
-    public boolean checkMembership(int id,Gym gym){
+    public String checkMembership(int id,Gym gym){
         User user = gym.searchUserByPersonalId(id);
         Membership membership = user.getTheMembership();
-        return membership.isStatus();
+        if(membership.isStatus()){
+            return "Ingreso APROBADO la membresia caduca en: "+ ChronoUnit.DAYS.between(LocalDate.now(),membership.getEndDate());
+        } else {
+            return "Ingreso RECHAZADO la membresia caduco hace: " + ChronoUnit.DAYS.between(membership.getEndDate(),LocalDate.now());
+        }
     }
 
 }
