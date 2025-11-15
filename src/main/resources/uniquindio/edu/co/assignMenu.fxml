@@ -6,16 +6,20 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.AssignView">
+<AnchorPane prefHeight="576.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.AssignView">
    <children>
-      <ChoiceBox fx:id="membershipBox" layoutX="82.0" layoutY="291.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="membershipPlanBox" layoutX="391.0" layoutY="291.0" prefWidth="150.0" />
-      <Button layoutX="272.0" layoutY="342.0" mnemonicParsing="false" text="Button" />
-      <TableView layoutX="67.0" layoutY="46.0" prefHeight="200.0" prefWidth="467.0">
+      <ChoiceBox fx:id="membershipBox" layoutX="67.0" layoutY="412.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="membershipPlanBox" layoutX="610.0" layoutY="412.0" prefWidth="150.0" />
+      <Button layoutX="380.0" layoutY="492.0" mnemonicParsing="false" text="Button" />
+      <TableView layoutX="67.0" layoutY="46.0" prefHeight="318.0" prefWidth="693.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="Column X" />
+          <TableColumn prefWidth="-1.0" text="Nombre" />
+          <TableColumn prefWidth="-1.0" text="Apellido" />
+            <TableColumn prefWidth="50.0" text="Edad" />
+            <TableColumn prefWidth="150.0" text="Cedula" />
+            <TableColumn prefWidth="-1.0" text="Telefono" />
+            <TableColumn prefWidth="-1.0" text="Email" />
+            <TableColumn prefWidth="-1.0" text="Membrecia" />
         </columns>
       </TableView>
    </children>
