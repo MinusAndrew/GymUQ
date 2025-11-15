@@ -56,4 +56,8 @@ public class AssignView implements Initializable {
         membershipBox.getItems().addAll(getAllMembershipTypes());
         membershipPlanBox.getItems().addAll(getAllMembershipPlans());
     }
+
+
+
+
 }
