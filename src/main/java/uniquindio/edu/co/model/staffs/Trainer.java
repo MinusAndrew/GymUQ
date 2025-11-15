@@ -1,4 +1,4 @@
-package uniquindio.edu.co.model.workers;
+package uniquindio.edu.co.model.staffs;
 import uniquindio.edu.co.model.*;
 
 public class Trainer extends Staff {

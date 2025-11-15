@@ -1,6 +1,6 @@
 package uniquindio.edu.co.model;
 
-import uniquindio.edu.co.model.workers.Trainer;
+import uniquindio.edu.co.model.staffs.Trainer;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
@@ -36,7 +36,7 @@ public class Session {
     }
 
     public void addUserToSession(User user){
-        assert sessionUsersList.size() < maxCapacity;
+        assert sessionUsersList.size() < maxCapacity : "Session is full";
         sessionUsersList.add(user);
     }
 
