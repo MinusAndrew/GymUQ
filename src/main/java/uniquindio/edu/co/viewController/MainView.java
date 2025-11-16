@@ -12,9 +12,7 @@ import java.io.IOException;
 public class MainView {
     private Gym theGym;
 
-    public MainView(Gym theGym) {
-        this.theGym = theGym;
-    }
+
     @FXML
     public void registerUserC(ActionEvent event){
         /*

@@ -12,11 +12,8 @@ import java.io.IOException;
 public class AdminView {
     private Gym theGym;
 
-    public AdminView(Gym theGym) {
-        this.theGym = theGym;
-    }
     @FXML
-    public void registerUserC(ActionEvent event){
+    public void registerTrainerB(ActionEvent event){
         /*
 
         WARCRIME DO NOT REPLACE
@@ -29,12 +26,12 @@ public class AdminView {
          */
         try {
             Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/registerUserMenu.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/registerTrainerMenu.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            RegisterUserView registerUserView = fxmlLoader.getController();
-            registerUserView.setTheGym(theGym);
+            RegisterTrainerView registerTrainerView = fxmlLoader.getController();
+            registerTrainerView.setTheGym(theGym);
             stage.setResizable(false);
-            stage.setTitle("Hello!");
+            stage.setTitle("Registrar Entrenador");
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
@@ -47,22 +44,7 @@ public class AdminView {
 
 
 
-    }
 
-    public void assignMembershipC(ActionEvent event){
-        try {
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/assignMenu.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            AssignView assignView = fxmlLoader.getController();
-            assignView.setTheGym(theGym);
-            stage.setResizable(false);
-            stage.setTitle("Hello!");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void setTheGym(Gym theGym) {
