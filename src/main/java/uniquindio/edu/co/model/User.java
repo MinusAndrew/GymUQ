@@ -38,13 +38,14 @@ public class User {
         this.theUserSession = theUserSession;
     }
 
-    public User(String name, String lastName, int personalId, String phoneNumber, int age) {
+    public User(String name, String lastName, int personalId, String phoneNumber, int age, String email) {
         this.name = name;
         this.lastName = lastName;
         this.personalId = personalId;
         this.phoneNumber = phoneNumber;
         assert age > 0 : "Cannot add a user with negative age";
         this.age = age;
+        this.email = email;
     }
 
 

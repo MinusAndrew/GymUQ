@@ -33,8 +33,8 @@ public class App {
 
         Receptionist receptionist = new Receptionist("jaco","londono",1128,"311",18,"Switch");
 
-        User user = new User("Juan","Castaño",109872,"311000000",17);
-        User user1 = new User("Esteban","Gutierrez",109802,"323000000",17);
+        User user = new User("Juan","Castaño",109872,"311000000",17,null);
+        User user1 = new User("Esteban","Gutierrez",109802,"323000000",17,null);
         Membership membership = new Membership(80000,user, MembershipPlan.BASIC, MembershipType.MONTHLY);
         Membership membership1 = new Membership(40000,user1, MembershipPlan.VIP, MembershipType.ANNUALLY);
 
@@ -129,33 +129,9 @@ public class App {
         return s.toString();
     }
 
-    public void sendEmailMembership(User user){
-        Email email = EmailBuilder.startingBlank()
-                .from("Gym", "jacobo.londonod@uqvirtual.edu.co")
-                .to(user.getName(), user.getEmail())
-                .withSubject("TU MEMBRESIA ESTA A PUNTO DE EXPIRAR")
-                .withPlainText("Tu membresia caduca en 7 dias")
-                .buildEmail();
-        Mailer mailer = MailerBuilder
-                .withSMTPServer("smtp.gmail.com", 587, "londonojacobo92@gmail.com", "gzxg xxyx xbqb lzey")
-                .withTransportStrategy(TransportStrategy.SMTP_TLS) // or SMTP_SSL, SMTPS
-                .buildMailer();
-        mailer.sendMail(email);
-    }
 
-    public void sendEmailSession(User user){
-        Email email = EmailBuilder.startingBlank()
-                .from("Gym", "jacobo.londonod@uqvirtual.edu.co")
-                .to("Wincohax", "jacobo.londonod@uqvirtual.edu.co")
-                .withSubject("Test Subject")
-                .withPlainText("This is the plain text body of the email.")
-                .buildEmail();
-        Mailer mailer = MailerBuilder
-                .withSMTPServer("smtp.gmail.com", 587, "londonojacobo92@gmail.com", "gzxg xxyx xbqb lzey")
-                .withTransportStrategy(TransportStrategy.SMTP_TLS) // or SMTP_SSL, SMTPS
-                .buildMailer();
-        mailer.sendMail(email);
-    }
+
+
 
     /*
      * LocalDate day1 = LocalDate.of(2025,10,18);

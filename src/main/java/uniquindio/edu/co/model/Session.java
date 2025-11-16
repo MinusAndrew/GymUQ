@@ -1,5 +1,10 @@
 package uniquindio.edu.co.model;
 
+import org.simplejavamail.api.email.Email;
+import org.simplejavamail.api.mailer.Mailer;
+import org.simplejavamail.api.mailer.config.TransportStrategy;
+import org.simplejavamail.email.EmailBuilder;
+import org.simplejavamail.mailer.MailerBuilder;
 import uniquindio.edu.co.model.staffs.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +43,7 @@ public class Session {
     public void addUserToSession(User user){
         assert sessionUsersList.size() < maxCapacity : "Session is full";
         sessionUsersList.add(user);
+        sendEmailSession(user);
     }
 
     public int getMaxCapacity() {
@@ -86,5 +92,24 @@ public class Session {
 
     public void setSessionUsersList(List<User> sessionUsersList) {
         this.sessionUsersList = sessionUsersList;
+    }
+
+    void sendEmailSession(User user){
+        try {
+            Email email = EmailBuilder.startingBlank()
+                    .from("Gym", "jacobo.londonod@uqvirtual.edu.co")
+                    .to(user.getName(), user.getEmail())
+                    .withSubject("Registro exitoso en la clase")
+                    .withPlainText("Usted se ha registrado en la clase " + this.name + " para el dia "+ this.schedule)
+                    .buildEmail();
+            Mailer mailer = MailerBuilder
+                    .withSMTPServer("smtp.gmail.com", 587, "londonojacobo92@gmail.com", "gzxg xxyx xbqb lzey")
+                    .withTransportStrategy(TransportStrategy.SMTP_TLS) // or SMTP_SSL, SMTPS
+                    .buildMailer();
+            mailer.sendMail(email);
+        }catch (Exception e){
+            System.out.println("Something failed " + e);
+        }
+
     }
 }
