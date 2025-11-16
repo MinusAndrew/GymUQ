@@ -1,4 +1,8 @@
-package uniquindio.edu.co.model;
+package uniquindio.edu.co.model.users;
+
+import uniquindio.edu.co.model.Membership;
+import uniquindio.edu.co.model.Session;
+import uniquindio.edu.co.model.User;
 
 public class Student extends User {
     /**

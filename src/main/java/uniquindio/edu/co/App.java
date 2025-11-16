@@ -5,25 +5,45 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
+
+import org.simplejavamail.api.email.Email;
+import org.simplejavamail.api.mailer.Mailer;
+import org.simplejavamail.email.EmailBuilder;
+import org.simplejavamail.mailer.MailerBuilder;
+import org.simplejavamail.api.mailer.config.TransportStrategy;
 import uniquindio.edu.co.model.*;
 import uniquindio.edu.co.model.enums.*;
 import uniquindio.edu.co.model.staffs.*;
 
 public class App {
-    public static void main(String[] args) {
+    public static final Gym gym = new Gym("Uq",122);
+    public static final
+        Runnable dailyTask = () ->  {
+        gym.checkMemberships();
+        System.out.println("Hallo");
+        gym.dailyCheck.clear();
+    };
+
+
+    void main() {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
 
-        Gym gym = new Gym("Uq",122);
+
 
         Receptionist receptionist = new Receptionist("jaco","londono",1128,"311",18,"Switch");
+
         User user = new User("Juan","Castaño",109872,"311000000",17);
-        Membership membership = new Membership(80000,user, MembershipPlan.BASIC, MembershipType.MONTHLY);
-
         User user1 = new User("Esteban","Gutierrez",109802,"323000000",17);
-
+        Membership membership = new Membership(80000,user, MembershipPlan.BASIC, MembershipType.MONTHLY);
         Membership membership1 = new Membership(40000,user1, MembershipPlan.VIP, MembershipType.ANNUALLY);
-        membership1.setEndDate(LocalDate.of(2024,5,15));
+
+        Trainer trainer = new Trainer("andres","camilo",1093,"322000000",18,"horriblekids");
+
+        Session session = new Session(2,"Yoga",LocalDate.of(2025,11,17),"Relajacion yoquese",trainer);
+
+
+        //membership1.setEndDate(LocalDate.of(2024,5,15));
         membership.setEndDate(LocalDate.of(2027,1,24));
 
         receptionist.assignMembership(user,membership);
@@ -31,6 +51,8 @@ public class App {
 
         gym.registerUser(user);
         gym.registerUser(user1);
+
+        gym.registerSession(session);
 
         //membership.setStartDate(membership.getStartDate().plusMonths(12));
 
@@ -45,22 +67,22 @@ public class App {
         list.add(membership1);
 
 
-        Runnable dailyTask = () ->  {
-            gym.checkMemberships();
-            System.out.println("Hallo");
-        };
-
-
-        //scheduler.scheduleAtFixedRate(dailyTask, 0, 1, TimeUnit.DAYS);
+        scheduler.scheduleAtFixedRate(dailyTask, 0, 1, TimeUnit.DAYS);
         gym.checkMemberships();
+
+        //Estos dos metodos deben de ir juntos
+        gym.dailyCheck.add(gym.searchUserByPersonalId(109802));
         System.out.println(receptionist.checkMembership(109802,gym));
 
 
-        //System.out.println(reporteMembresias(list));
+
+        String reporte = activeUsers() + "\n" + reporteMembresias(list);
+
+
 
         //System.out.println(receptionist.getPassword() +"\n"+yes+"\n"+no);
 
-        //System.out.println(membership);
+        System.out.println(reporte);
 
 
 
@@ -96,7 +118,43 @@ public class App {
                 reporteExpirados.append("La membresia del usuario: ").append(nombreUsario).append(" con documento ").append(idUsuario).append(" caduco hace ").append(caducoHace).append(" dias\n");
             }
         }
-        return "Membresias por caducar: \n" + reportePorExpirar + "Membresias caducadas: \n" + reporteExpirados.toString();
+        return "Membresias por caducar: \n" + reportePorExpirar + "Membresias caducadas: \n" + reporteExpirados;
+    }
+
+    public static String activeUsers(){
+        StringBuilder s = new StringBuilder();
+        for(User u : gym.dailyCheck){
+            s.append(u.getName()).append(" ").append(u.getLastName()).append("   ").append(u.getPersonalId()).append("\n");
+        }
+        return s.toString();
+    }
+
+    public void sendEmailMembership(User user){
+        Email email = EmailBuilder.startingBlank()
+                .from("Gym", "jacobo.londonod@uqvirtual.edu.co")
+                .to(user.getName(), user.getEmail())
+                .withSubject("TU MEMBRESIA ESTA A PUNTO DE EXPIRAR")
+                .withPlainText("Tu membresia caduca en 7 dias")
+                .buildEmail();
+        Mailer mailer = MailerBuilder
+                .withSMTPServer("smtp.gmail.com", 587, "londonojacobo92@gmail.com", "gzxg xxyx xbqb lzey")
+                .withTransportStrategy(TransportStrategy.SMTP_TLS) // or SMTP_SSL, SMTPS
+                .buildMailer();
+        mailer.sendMail(email);
+    }
+
+    public void sendEmailSession(User user){
+        Email email = EmailBuilder.startingBlank()
+                .from("Gym", "jacobo.londonod@uqvirtual.edu.co")
+                .to("Wincohax", "jacobo.londonod@uqvirtual.edu.co")
+                .withSubject("Test Subject")
+                .withPlainText("This is the plain text body of the email.")
+                .buildEmail();
+        Mailer mailer = MailerBuilder
+                .withSMTPServer("smtp.gmail.com", 587, "londonojacobo92@gmail.com", "gzxg xxyx xbqb lzey")
+                .withTransportStrategy(TransportStrategy.SMTP_TLS) // or SMTP_SSL, SMTPS
+                .buildMailer();
+        mailer.sendMail(email);
     }
 
     /*

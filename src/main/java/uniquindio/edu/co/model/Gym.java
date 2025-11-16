@@ -7,15 +7,17 @@ import java.util.List;
 
 public class Gym {
 
+    public List<User> dailyCheck =  new ArrayList<>();
     //Attributes
     private String name;
     private int id;
-    private List<User> dailyCheckInList;
 
     //Relationships
     private List<User> usersList;
+    private List<Session> sessionList;
     private List<Trainer> trainersList;
     private List<Staff> staffList;
+    private List <Membership> membershipsList;
 
     /**
      * Gym class Constructor
@@ -28,7 +30,8 @@ public class Gym {
         this.usersList = new ArrayList<>();
         this.trainersList = new ArrayList<>();
         this.staffList = new ArrayList<>();
-
+        this.membershipsList = new ArrayList<>();
+        this.sessionList = new ArrayList<>();
     }
 
     public void idk(){}
@@ -45,6 +48,20 @@ public class Gym {
         }
     }
 
+    public List<User> mostActiveUsers(){
+        List<User> mostActiveUsers = new ArrayList<>();
+        List<User> test = new ArrayList<>();
+        for (Session session : this.sessionList) {
+            List<User> u = session.getSessionUsersList();
+            for(User u1 : u){
+                if(!test.contains(u1)){
+                    test.add(u1);
+                }
+            }
+        }
+
+        return mostActiveUsers;
+    }
 
 
     public boolean login(String name, String password){
@@ -96,6 +113,10 @@ public class Gym {
             }
         }
         return flag;
+    }
+
+    public void registerSession(Session session){
+        sessionList.add(session);
     }
 
     //Getters and Setters

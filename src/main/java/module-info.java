@@ -10,6 +10,8 @@ module uniquindio.edu.co {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires org.simplejavamail.core;
+    requires org.simplejavamail;
     //requires javafx.base;
 
 
@@ -21,4 +23,5 @@ module uniquindio.edu.co {
     exports uniquindio.edu.co.model;
     exports uniquindio.edu.co.model.enums;
     exports uniquindio.edu.co.model.staffs;
+    exports uniquindio.edu.co.model.users;
 }

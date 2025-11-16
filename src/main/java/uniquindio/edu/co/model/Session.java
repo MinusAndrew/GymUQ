@@ -14,7 +14,7 @@ public class Session {
     private String name;
 
     // Relationships
-    private List<Trainer> trainersList;
+    private Trainer theTrainer;
     private List<User> sessionUsersList;
 
     /**
@@ -25,12 +25,12 @@ public class Session {
      * @param schedule of the Session
      * @param name of the Session
      */
-    public Session(int maxCapacity, String type, LocalDate schedule, String name) {
+    public Session(int maxCapacity, String type, LocalDate schedule, String name, Trainer theTrainer) {
         this.maxCapacity = maxCapacity;
         this.type = type;
         this.schedule = schedule;
         this.name = name;
-        this.trainersList=new ArrayList<>();
+        this.theTrainer = theTrainer;
         this.sessionUsersList=new ArrayList<>();
 
     }
@@ -72,12 +72,12 @@ public class Session {
         this.name = name;
     }
 
-    public List<Trainer> getTrainersList() {
-        return trainersList;
+    public Trainer getTheTrainer() {
+        return theTrainer;
     }
 
-    public void setTrainersList(List<Trainer> trainersList) {
-        this.trainersList = trainersList;
+    public void setTheTrainer(Trainer theTrainer) {
+        this.theTrainer = theTrainer;
     }
 
     public List<User> getSessionUsersList() {

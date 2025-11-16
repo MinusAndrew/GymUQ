@@ -1,4 +1,8 @@
-package uniquindio.edu.co.model;
+package uniquindio.edu.co.model.users;
+
+import uniquindio.edu.co.model.Membership;
+import uniquindio.edu.co.model.Session;
+import uniquindio.edu.co.model.User;
 
 public class Individual extends User {
     /**
@@ -13,7 +17,7 @@ public class Individual extends User {
      * @param theUserSession of the user
      */
 
-    public Individual(String name, String lastName, int personalId, String phoneNumber, int age,String email, Membership theMembership, Session theUserSession) {
+    public Individual(String name, String lastName, int personalId, String phoneNumber, int age, String email, Membership theMembership, Session theUserSession) {
         super(name, lastName, personalId, phoneNumber, age, email, theMembership, theUserSession);
     }
 
