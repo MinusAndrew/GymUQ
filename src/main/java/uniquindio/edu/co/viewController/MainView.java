@@ -4,7 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import uniquindio.edu.co.model.Gym;
 
@@ -13,9 +12,7 @@ import java.io.IOException;
 public class MainView {
     private Gym theGym;
 
-    public MainView(Gym theGym) {
-        this.theGym = theGym;
-    }
+
     @FXML
     public void registerUserC(ActionEvent event){
         /*
@@ -30,10 +27,10 @@ public class MainView {
          */
         try {
             Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/registerMenu.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/registerUserMenu.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            RegisterView registerView = fxmlLoader.getController();
-            registerView.setTheGym(theGym);
+            RegisterUserView registerUserView = fxmlLoader.getController();
+            registerUserView.setTheGym(theGym);
             stage.setResizable(false);
             stage.setTitle("Hello!");
             stage.setScene(scene);
@@ -53,10 +50,11 @@ public class MainView {
     public void assignMembershipC(ActionEvent event){
         try {
             Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/AssignMenu.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/assignMenu.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            RegisterView registerView = fxmlLoader.getController();
-            registerView.setTheGym(theGym);
+            AssignView assignView = fxmlLoader.getController();
+            assignView.setTheGym(theGym);
+            assignView.fillUpList();
             stage.setResizable(false);
             stage.setTitle("Hello!");
             stage.setScene(scene);

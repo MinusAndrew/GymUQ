@@ -11,13 +11,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import uniquindio.edu.co.Controller.RegisterMenu;
 import uniquindio.edu.co.model.*;
-import uniquindio.edu.co.model.users.*;
 
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RegisterView implements Initializable {
+public class RegisterUserView implements Initializable {
     private Gym theGym;
     @FXML
     private Button registerButton;
@@ -77,8 +76,8 @@ public class RegisterView implements Initializable {
                     currentWindow.close();
                     break;
                 case ("Trabajador"):
-                    newUser = new User(name, lastName, personalId, phoneNumber, age);
-                    registerMenu.registerUser(newUser);
+                 //   newUser = new Worker(name, lastName, personalId, phoneNumber, age);
+                    //registerMenu.registerUser(newUser);
                     currentWindow.close();
                     break;
                 case ("Externo"):
