@@ -3,10 +3,7 @@ package uniquindio.edu.co.viewController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import uniquindio.edu.co.Controller.RegisterMenu;
@@ -14,11 +11,13 @@ import uniquindio.edu.co.model.Gym;
 import uniquindio.edu.co.model.Individual;
 import uniquindio.edu.co.model.Student;
 import uniquindio.edu.co.model.User;
+import uniquindio.edu.co.model.staffs.Trainer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RegisterTrainerView implements Initializable {
+public class RegisterTrainerView {
+
     private Gym theGym;
     @FXML
     private Button registerButton;
@@ -33,25 +32,17 @@ public class RegisterTrainerView implements Initializable {
     @FXML
     private TextField ageField;
     @FXML
-    private ChoiceBox<String> userType;
+    private PasswordField trainerPasswdField;
 
     @FXML
     private AnchorPane scenePane;
 
     Stage currentWindow;
 
-    private final String[] userTypes = {"Estudiante", "Trabajador", "Externo"};
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        userType.getItems().addAll(userTypes);
-    }
-
     public void pressRegisterButton(ActionEvent event){
 
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
         errorAlert.setContentText("No se ha registrado el usuario, \nverifique que los datos dados sean correctos");
-
 
         currentWindow = (Stage) scenePane.getScene().getWindow();
 
@@ -64,30 +55,17 @@ public class RegisterTrainerView implements Initializable {
             RegisterMenu registerMenu = new RegisterMenu();
             registerMenu.setTheGym(theGym);
 
-            String option = userType.getValue();
+            String passwd = grabPasswd();
 
-            User newUser;
+            Trainer newTrainer;
 
             Alert succsessAlert = new Alert(Alert.AlertType.INFORMATION);
             succsessAlert.setContentText("El Usuario se registró correctamente.");
 
-            switch (option){
-                case ("Estudiante"):
-                    newUser = new Student(name, lastName, personalId, phoneNumber, age);
-                    registerMenu.registerUser(newUser);
-                    currentWindow.close();
-                    break;
-                case ("Trabajador"):
-                 //   newUser = new Worker(name, lastName, personalId, phoneNumber, age);
-                    //registerMenu.registerUser(newUser);
-                    currentWindow.close();
-                    break;
-                case ("Externo"):
-                    newUser = new Individual(name, lastName, personalId, phoneNumber, age);
-                    registerMenu.registerUser(newUser);
-                    currentWindow.close();
-                    break;
-            }
+            newTrainer = new Trainer(name, lastName, personalId, phoneNumber, age, passwd);
+            registerMenu.registerStaff(newTrainer);
+            currentWindow.close();
+
             succsessAlert.show();
         }
         catch (Throwable e){
@@ -115,7 +93,14 @@ public class RegisterTrainerView implements Initializable {
         return phoneNumberField.getText();
     }
 
+    public String grabPasswd(){
+        return trainerPasswdField.getText();
+    }
+
     public void setTheGym(Gym theGym) {
         this.theGym = theGym;
     }
+
+
+
 }

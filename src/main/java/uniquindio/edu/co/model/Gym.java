@@ -164,4 +164,11 @@ public class Gym {
         this.trainersList = trainersList;
     }
 
+    /**
+     * Gets the list of Staff members in the gym
+     * @return the staffList
+     */
+    public List<Staff> getStaffList() {
+        return staffList;
+    }
 }
