@@ -105,14 +105,14 @@ public class Staff {
 
     /**
      * VERY SAFE AND ABSOLUTELY SECURE METHOD
-     * @return returns the worker's password LMAO.
+     * @return returns the worker's password LMAO.(NOW encrypted :p)
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * Safer than the last one is for sure
+     * Safer than the last one is for sure (Well this needs a verification first)
      * @param password the password given by the Staff.
      */
     public void setPassword(String password) {

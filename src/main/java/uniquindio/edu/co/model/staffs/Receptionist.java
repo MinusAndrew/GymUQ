@@ -74,10 +74,12 @@ public class Receptionist extends Staff {
         User user = gym.searchUserByPersonalId(id);
         Membership membership = user.getTheMembership();
         if(membership.isStatus()){
-            return "Ingreso APROBADO la membresia caduca en: "+ ChronoUnit.DAYS.between(LocalDate.now(),membership.getEndDate());
+            return "Ingreso APROBADO la membresia caduca en: "+ ChronoUnit.DAYS.between(LocalDate.now(),membership.getEndDate()) + " dias";
         } else {
-            return "Ingreso RECHAZADO la membresia caduco hace: " + ChronoUnit.DAYS.between(membership.getEndDate(),LocalDate.now());
+            return "Ingreso RECHAZADO la membresia caduco hace: " + ChronoUnit.DAYS.between(membership.getEndDate(),LocalDate.now()) + " dias";
         }
     }
+
+
 
 }
