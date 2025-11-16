@@ -1,6 +1,6 @@
 package uniquindio.edu.co.model;
 
-import uniquindio.edu.co.model.staffs.Trainer;
+import uniquindio.edu.co.model.staffs.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,7 @@ public class Gym {
     //Attributes
     private String name;
     private int id;
+    private List<User> dailyCheckInList;
 
     //Relationships
     private List<User> usersList;
@@ -27,7 +28,23 @@ public class Gym {
         this.usersList = new ArrayList<>();
         this.trainersList = new ArrayList<>();
         this.staffList = new ArrayList<>();
+
     }
+
+    public void idk(){}
+
+
+    public void checkMemberships(){
+        for (User user : this.usersList) {
+            Membership memb = user.getTheMembership();
+            boolean status = memb.isStatus();
+            memb.updateStatus();
+            if(status!= memb.isStatus()){
+                System.out.println(memb);
+            }
+        }
+    }
+
 
 
     public boolean login(String name, String password){
