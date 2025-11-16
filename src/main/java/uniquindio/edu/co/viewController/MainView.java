@@ -56,6 +56,7 @@ public class MainView {
             Scene scene = new Scene(fxmlLoader.load());
             AssignView assignView = fxmlLoader.getController();
             assignView.setTheGym(theGym);
+            assignView.fillUpList();
             stage.setResizable(false);
             stage.setTitle("Hello!");
             stage.setScene(scene);
