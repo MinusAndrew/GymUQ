@@ -1,5 +1,6 @@
 package uniquindio.edu.co.viewController;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
@@ -37,7 +38,6 @@ public class ModifyTrainerView implements Initializable {
 
     @FXML
     private TextField nameLabel;
-
     @FXML
     private TextField lastNameLabel;
     @FXML
@@ -61,8 +61,6 @@ public class ModifyTrainerView implements Initializable {
         trainerPersonalIdColumn.setCellValueFactory(new PropertyValueFactory<>("personalId"));
         trainerPhoneNumColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         trainerAgeColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
-
-
         /*
         userTable.getColumns().add(userFirstNameColumn);
         userTable.getColumns().add(userLastNameColumn);
@@ -89,6 +87,8 @@ public class ModifyTrainerView implements Initializable {
         ageLabel.setText(Integer.toString(trainer.getAge()));
         personalIdLabel.setText(Integer.toString(trainer.getPersonalId()));
         phoneNumLabel.setText(trainer.getPhoneNumber());
+
+
     }
 
    // permizokenoez variablesindeklarar.funzionknoexicste(datokenoez);
@@ -98,21 +98,31 @@ public class ModifyTrainerView implements Initializable {
         modifyTrainerMenu.setTheGym(theGym);
 
         Trainer trainer = trainerTable.getSelectionModel().getSelectedItem();
-        trainer.setAge(Integer.parseInt(ageLabel.getText()));
-        trainer.setName(nameLabel.getText());
-        trainer.setLastName(lastNameLabel.getText());
-        trainer.setPersonalId(Integer.parseInt(personalIdLabel.getText()));
-        trainer.setPhoneNumber(phoneNumLabel.getText());
+
+        int trainerAge = Integer.parseInt(ageLabel.getText());
+        int trainerPersonalId = Integer.parseInt(personalIdLabel.getText());
+        String trainerName = nameLabel.getText();
+        String trainerLastName = lastNameLabel.getText();
+        String trainerPhoneNumber = phoneNumLabel.getText();
+
+        modifyTrainerMenu.setTrainerAge(trainerAge, trainer);
+        modifyTrainerMenu.setTrainerPersonalId(trainerPersonalId, trainer);
+        modifyTrainerMenu.setTrainerName(trainerName, trainer);
+        modifyTrainerMenu.setTrainerLastName(trainerLastName, trainer);
+        modifyTrainerMenu.setTrainerPhoneNumber(trainerPhoneNumber, trainer);
 
         trainerTable.refresh();
-
-
-       // assignMenu.assignMembershipToUser(user.getPersonalId(), planOption, typeOption);
-        //userTable.refresh();
     }
 
+    public void deleteTrainerB(){
+        ModifyTrainerMenu modifyTrainerMenu = new ModifyTrainerMenu();
+        modifyTrainerMenu.setTheGym(theGym);
+        Trainer trainer = trainerTable.getSelectionModel().getSelectedItem();
+        modifyTrainerMenu.removeTrainerFromGym(trainer);
 
-
+        trainerTable.getItems().remove(trainer);
+        //will comeback later to put a goofy ahh workaround
+    }
 
 
 

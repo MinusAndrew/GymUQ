@@ -58,6 +58,10 @@ public class Gym {
         return flag;
     }
 
+    /**
+     * Registers a staff member into the gym's trainerList
+     * @param staff that will be added.
+     */
     public void registerStaff(Staff staff){
         staffList.add(staff);
     }
@@ -68,6 +72,23 @@ public class Gym {
      * @param trainer that will be added.
      */
     public void registerTrainer(Trainer trainer){ trainersList.add(trainer); }
+
+
+    /**
+     * Removes trainer from the gym's trainerList
+     * @param trainer that will be removed.
+     */
+    public void removeTrainer(Trainer trainer){
+        trainersList.remove(trainer);
+    }
+
+    /**
+     * Removes the staff member from the gym's trainerList
+     * @param staff that will be removed.
+     */
+    public void removeStaff(Staff staff){
+        staffList.remove(staff);
+    }
 
     /**
      * Method to register a user in the usersList.

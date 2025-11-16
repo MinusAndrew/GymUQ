@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="576.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.ModifyTrainerView">
    <children>
-      <Button fx:id="modifyButton" layoutX="380.0" layoutY="492.0" mnemonicParsing="false" onAction="#modifyTrainerDataB" text="Aplicar" />
+      <Button fx:id="modifyButton" layoutX="248.0" layoutY="514.0" mnemonicParsing="false" onAction="#modifyTrainerDataB" text="Aplicar" />
       <TableView fx:id="trainerTable" layoutX="61.0" layoutY="45.0" onMouseClicked="#getDataOnMouseClick" prefHeight="318.0" prefWidth="693.0">
         <columns>
           <TableColumn fx:id="trainerFirstNameColumn" text="Nombre" />
@@ -23,5 +23,6 @@
       <TextField fx:id="ageLabel" layoutX="592.0" layoutY="388.0" promptText="Edad" />
       <TextField fx:id="personalIdLabel" layoutX="167.0" layoutY="441.0" promptText="Cedula" />
       <TextField fx:id="phoneNumLabel" layoutX="491.0" layoutY="441.0" promptText="Telefono" />
+      <Button layoutX="530.0" layoutY="514.0" mnemonicParsing="false" onAction="#deleteTrainerB" text="Eliminar" />
    </children>
 </AnchorPane>
