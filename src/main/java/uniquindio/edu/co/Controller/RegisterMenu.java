@@ -4,6 +4,7 @@ package uniquindio.edu.co.Controller;
 import uniquindio.edu.co.model.Gym;
 import uniquindio.edu.co.model.Staff;
 import uniquindio.edu.co.model.User;
+import uniquindio.edu.co.model.staffs.Trainer;
 
 public class RegisterMenu {
     private Gym theGym;
@@ -13,6 +14,11 @@ public class RegisterMenu {
     }
 
     public void registerStaff(Staff staff) { theGym.registerStaff(staff); }
+
+    public void registerTrainer(Trainer trainer) {
+        theGym.registerStaff(trainer);
+        theGym.registerTrainer(trainer);
+    }
 
     public void setTheGym(Gym theGym) {
         this.theGym = theGym;

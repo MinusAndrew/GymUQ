@@ -62,6 +62,13 @@ public class Gym {
         staffList.add(staff);
     }
 
+
+    /**
+     * Registers a trainer into the gym's trainerList
+     * @param trainer that will be added.
+     */
+    public void registerTrainer(Trainer trainer){ trainersList.add(trainer); }
+
     /**
      * Method to register a user in the usersList.
      * @param user to add

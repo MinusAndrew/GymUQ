@@ -5,12 +5,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import uniquindio.edu.co.Controller.AssignMenu;
+import uniquindio.edu.co.Controller.ModifyTrainerMenu;
 import uniquindio.edu.co.model.Gym;
 import uniquindio.edu.co.model.User;
 import uniquindio.edu.co.model.enums.MembershipPlan;
 import uniquindio.edu.co.model.enums.MembershipType;
+import uniquindio.edu.co.model.staffs.Trainer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,31 +23,29 @@ public class ModifyTrainerView implements Initializable {
     private Gym theGym;
 
     @FXML
-    private ChoiceBox<String> membershipBox;
+    private TableView<Trainer> trainerTable;
+    @FXML
+    private TableColumn<Trainer, String> trainerFirstNameColumn;
+    @FXML
+    private TableColumn<Trainer, String> trainerLastNameColumn;
+    @FXML
+    private TableColumn<Trainer, Integer> trainerAgeColumn;
+    @FXML
+    private TableColumn<Trainer, Integer> trainerPersonalIdColumn;
+    @FXML
+    private TableColumn<Trainer, String> trainerPhoneNumColumn;
 
     @FXML
-    private ChoiceBox<String> membershipPlanBox;
+    private TextField nameLabel;
 
     @FXML
-    private TableView<User> userTable;
+    private TextField lastNameLabel;
     @FXML
-    private TableColumn<User, String> userFirstNameColumn;
+    private TextField ageLabel;
     @FXML
-    private TableColumn<User, String> userLastNameColumn;
+    private TextField personalIdLabel;
     @FXML
-    private TableColumn<User, Integer> userAgeColumn;
-    @FXML
-    private TableColumn<User, Integer> userPersonalIdColumn;
-    @FXML
-    private TableColumn<User, String> userPhoneNumColumn;
-    @FXML
-    private TableColumn<User, String> userEmailColumn;
-    @FXML
-    private TableColumn<User, String> userMembershipColumn;
-
-
-    private final MembershipType[] membershipTypes = MembershipType.values();
-    private final MembershipPlan[] membershipPlans = MembershipPlan.values();
+    private TextField phoneNumLabel;
 
 
     public void setTheGym(Gym theGym) {
@@ -52,38 +53,14 @@ public class ModifyTrainerView implements Initializable {
     }
 
 
-    public String[] getAllMembershipTypes(){
-        String[] membershipNames = new String[membershipTypes.length];
-        for (int i = 0; i <= membershipNames.length - 1; i++){
-            String name = membershipTypes[i].name();
-            membershipNames[i] = name;
-        }
-        return membershipNames;
-    }
-
-    public String[] getAllMembershipPlans(){
-        String[] membershipPlanTypes = new String[membershipPlans.length];
-        for (int i = 0; i <= membershipPlanTypes.length - 1; i++){
-            String name = membershipPlans[i].name();
-            membershipPlanTypes[i] = name;
-        }
-        return membershipPlanTypes;
-    }
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        membershipBox.getItems().addAll(getAllMembershipTypes());
-        membershipPlanBox.getItems().addAll(getAllMembershipPlans());
 
-        userFirstNameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
-        userLastNameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("lastName"));
-        userPersonalIdColumn.setCellValueFactory(new PropertyValueFactory<User, Integer>("personalId"));
-        userPhoneNumColumn.setCellValueFactory(new PropertyValueFactory<User, String>("phoneNumber"));
-        userAgeColumn.setCellValueFactory(new PropertyValueFactory<User, Integer>("age"));
-        userEmailColumn.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
-        userMembershipColumn.setCellValueFactory(new PropertyValueFactory<User, String>("theMembership"));
+        trainerFirstNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        trainerLastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        trainerPersonalIdColumn.setCellValueFactory(new PropertyValueFactory<>("personalId"));
+        trainerPhoneNumColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        trainerAgeColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
 
 
         /*
@@ -101,19 +78,42 @@ public class ModifyTrainerView implements Initializable {
     }
 
     public void fillUpList(){
-        userTable.getItems().addAll(theGym.getUsersList());
+        trainerTable.getItems().addAll(theGym.getTrainersList());
     }
 
-    public void assignMembershipB(){
-        AssignMenu assignMenu = new AssignMenu();
-        assignMenu.setTheGym(theGym);
-        User user = userTable.getSelectionModel().getSelectedItem();
-
-        MembershipPlan planOption = MembershipPlan.valueOf(membershipPlanBox.getValue());
-        MembershipType typeOption = MembershipType.valueOf(membershipBox.getValue());
-
-        assignMenu.assignMembershipToUser(user.getPersonalId(), planOption, typeOption);
-        userTable.refresh();
+    
+    public void getDataOnMouseClick(){
+        Trainer trainer = trainerTable.getSelectionModel().getSelectedItem();
+        nameLabel.setText(trainer.getName());
+        lastNameLabel.setText(trainer.getLastName());
+        ageLabel.setText(Integer.toString(trainer.getAge()));
+        personalIdLabel.setText(Integer.toString(trainer.getPersonalId()));
+        phoneNumLabel.setText(trainer.getPhoneNumber());
     }
+
+   // permizokenoez variablesindeklarar.funzionknoexicste(datokenoez);
+
+    public void modifyTrainerDataB(){
+        ModifyTrainerMenu modifyTrainerMenu = new ModifyTrainerMenu();
+        modifyTrainerMenu.setTheGym(theGym);
+
+        Trainer trainer = trainerTable.getSelectionModel().getSelectedItem();
+        trainer.setAge(Integer.parseInt(ageLabel.getText()));
+        trainer.setName(nameLabel.getText());
+        trainer.setLastName(lastNameLabel.getText());
+        trainer.setPersonalId(Integer.parseInt(personalIdLabel.getText()));
+        trainer.setPhoneNumber(phoneNumLabel.getText());
+
+        trainerTable.refresh();
+
+
+       // assignMenu.assignMembershipToUser(user.getPersonalId(), planOption, typeOption);
+        //userTable.refresh();
+    }
+
+
+
+
+
 
 }

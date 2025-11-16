@@ -72,7 +72,7 @@ public class LoginView {
                     stage1.show();
                     break;
                 case ('T'):
-                    FXMLLoader fxmlLoader3 = new FXMLLoader(Application.class.getResource("/uniquindio/edu/co/TrainerMenu.fxml"));
+                    FXMLLoader fxmlLoader3 = new FXMLLoader(Application.class.getResource("/uniquindio/edu/co/trainerMenu.fxml"));
                     Scene scene3 = new Scene(fxmlLoader3.load());
                     TrainerView trainerView = fxmlLoader3.getController();
                     trainerView.setTheGym(theGym);

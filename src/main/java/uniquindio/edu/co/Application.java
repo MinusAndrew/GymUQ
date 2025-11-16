@@ -10,6 +10,7 @@ import uniquindio.edu.co.model.enums.MembershipPlan;
 import uniquindio.edu.co.model.enums.MembershipType;
 import uniquindio.edu.co.model.staffs.Admin;
 import uniquindio.edu.co.model.staffs.Receptionist;
+import uniquindio.edu.co.model.staffs.Trainer;
 import uniquindio.edu.co.viewController.*;
 
 import java.io.IOException;
@@ -27,6 +28,8 @@ public class Application extends javafx.application.Application {
 
             User user1 = new User("Esteban","Gutierrez",109802,"323000000",17);
 
+            Trainer trainer = new Trainer("Jay", "ninjers", 7227, "888", 26, "123");
+
             Membership membership1 = new Membership(40000,user1, MembershipPlan.VIP, MembershipType.ANNUALLY);
             membership1.setEndDate(LocalDate.of(2025,5,15));
             membership.setEndDate(LocalDate.of(2025,11,24));
@@ -38,6 +41,10 @@ public class Application extends javafx.application.Application {
             gym.getUsersList().add(user1);
             gym.getStaffList().add(receptionist);
             gym.getStaffList().add(admin1);
+
+            //Igottamakethisintothecontroller
+            gym.getStaffList().add(trainer);
+            gym.getTrainersList().add(trainer);
 
             FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/uniquindio/edu/co/loginMenu.fxml"));
           //  fxmlLoader.setControllerFactory(param -> new MainView(gym));

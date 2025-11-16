@@ -5,7 +5,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.AdminView">
    <children>
       <Button layoutX="224.0" layoutY="187.0" mnemonicParsing="false" onAction="#registerTrainerB" prefHeight="26.0" prefWidth="166.0" text="Registar Entrenador" />
@@ -15,6 +14,6 @@
             <Font size="40.0" />
          </font>
       </Text>
-      <Button layoutX="224.0" layoutY="242.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="166.0" text="Modificar Entrenadores" />
+      <Button layoutX="224.0" layoutY="242.0" mnemonicParsing="false" onAction="#modifyTrainerB" prefHeight="26.0" prefWidth="166.0" text="Modificar Entrenadores" />
    </children>
 </AnchorPane>
