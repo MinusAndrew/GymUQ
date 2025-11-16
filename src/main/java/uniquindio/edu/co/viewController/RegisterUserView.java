@@ -1,11 +1,8 @@
 package uniquindio.edu.co.viewController;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -16,11 +13,10 @@ import uniquindio.edu.co.Controller.RegisterMenu;
 import uniquindio.edu.co.model.*;
 
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RegisterView implements Initializable {
+public class RegisterUserView implements Initializable {
     private Gym theGym;
     @FXML
     private Button registerButton;
@@ -42,7 +38,7 @@ public class RegisterView implements Initializable {
 
     Stage currentWindow;
 
-    private String[] userTypes = {"Estudiante", "Trabajador", "Externo"};
+    private final String[] userTypes = {"Estudiante", "Trabajador", "Externo"};
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,8 +76,8 @@ public class RegisterView implements Initializable {
                     currentWindow.close();
                     break;
                 case ("Trabajador"):
-                    newUser = new Worker(name, lastName, personalId, phoneNumber, age);
-                    registerMenu.registerUser(newUser);
+                 //   newUser = new Worker(name, lastName, personalId, phoneNumber, age);
+                    //registerMenu.registerUser(newUser);
                     currentWindow.close();
                     break;
                 case ("Externo"):

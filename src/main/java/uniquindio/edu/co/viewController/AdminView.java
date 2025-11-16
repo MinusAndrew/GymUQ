@@ -9,10 +9,10 @@ import uniquindio.edu.co.model.Gym;
 
 import java.io.IOException;
 
-public class MainView {
+public class AdminView {
     private Gym theGym;
 
-    public MainView(Gym theGym) {
+    public AdminView(Gym theGym) {
         this.theGym = theGym;
     }
     @FXML
@@ -56,7 +56,6 @@ public class MainView {
             Scene scene = new Scene(fxmlLoader.load());
             AssignView assignView = fxmlLoader.getController();
             assignView.setTheGym(theGym);
-            assignView.fillUpList();
             stage.setResizable(false);
             stage.setTitle("Hello!");
             stage.setScene(scene);
