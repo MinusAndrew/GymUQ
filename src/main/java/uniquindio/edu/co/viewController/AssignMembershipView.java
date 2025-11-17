@@ -8,7 +8,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import uniquindio.edu.co.Controller.AssignMenu;
 import uniquindio.edu.co.model.Gym;
-import uniquindio.edu.co.model.Membership;
 import uniquindio.edu.co.model.User;
 import uniquindio.edu.co.model.enums.MembershipPlan;
 import uniquindio.edu.co.model.enums.MembershipType;
@@ -16,7 +15,7 @@ import uniquindio.edu.co.model.enums.MembershipType;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AssignView implements Initializable {
+public class AssignMembershipView implements Initializable {
 
     private Gym theGym;
 
@@ -85,19 +84,6 @@ public class AssignView implements Initializable {
         userAgeColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
         userEmailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         userMembershipColumn.setCellValueFactory(new PropertyValueFactory<>("theMembership"));
-
-
-        /*
-        userTable.getColumns().add(userFirstNameColumn);
-        userTable.getColumns().add(userLastNameColumn);
-        userTable.getColumns().add(userPersonalIdColumn);
-        userTable.getColumns().add(userPhoneNumColumn);
-        userTable.getColumns().add(userAgeColumn);
-        userTable.getColumns().add(userEmailColumn);
-        userTable.getColumns().add(userMembershipColumn);
-         */
-
-       //
 
     }
 

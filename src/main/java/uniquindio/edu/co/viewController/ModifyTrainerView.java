@@ -61,17 +61,6 @@ public class ModifyTrainerView implements Initializable {
         trainerPersonalIdColumn.setCellValueFactory(new PropertyValueFactory<>("personalId"));
         trainerPhoneNumColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
         trainerAgeColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
-        /*
-        userTable.getColumns().add(userFirstNameColumn);
-        userTable.getColumns().add(userLastNameColumn);
-        userTable.getColumns().add(userPersonalIdColumn);
-        userTable.getColumns().add(userPhoneNumColumn);
-        userTable.getColumns().add(userAgeColumn);
-        userTable.getColumns().add(userEmailColumn);
-        userTable.getColumns().add(userMembershipColumn);
-         */
-
-       //
 
     }
 

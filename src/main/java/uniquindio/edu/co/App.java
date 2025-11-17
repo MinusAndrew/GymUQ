@@ -29,8 +29,6 @@ public class App {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
 
-
-
         Receptionist receptionist = new Receptionist("jaco","londono",1128,"311",18,"Switch");
 
         User user = new User("Juan","Castaño",109872,"311000000",17,null);
@@ -40,7 +38,7 @@ public class App {
 
         Trainer trainer = new Trainer("andres","camilo",1093,"322000000",18,"horriblekids");
 
-        Session session = new Session(2,"Yoga",LocalDate.of(2025,11,17),"Relajacion yoquese",trainer);
+        //Session session = new Session(2,"Yoga",LocalDate.of(2025,11,17),"Relajacion yoquese",trainer);
 
 
         //membership1.setEndDate(LocalDate.of(2024,5,15));
@@ -52,7 +50,7 @@ public class App {
         gym.registerUser(user);
         gym.registerUser(user1);
 
-        gym.registerSession(session);
+       // gym.registerSession(session);
 
         //membership.setStartDate(membership.getStartDate().plusMonths(12));
 

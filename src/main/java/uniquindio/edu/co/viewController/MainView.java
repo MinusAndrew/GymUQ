@@ -41,8 +41,22 @@ public class MainView {
     }
 
 
-    public void assignUserToSessionC(ActionEvent event){
-
+    public void assignUserToSessionB(ActionEvent event){
+        try {
+            Stage stage = new Stage();
+            FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/assignSessionMenu.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            AssignSessionView assignSessionView = fxmlLoader.getController();
+            assignSessionView.setTheGym(theGym);
+            assignSessionView.fillUpSessionList();
+            assignSessionView.fillUpUserList();
+            stage.setResizable(false);
+            stage.setTitle("GYMUQ Menú Principal!");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -52,9 +66,9 @@ public class MainView {
             Stage stage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/assignMenu.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
-            AssignView assignView = fxmlLoader.getController();
-            assignView.setTheGym(theGym);
-            assignView.fillUpList();
+            AssignMembershipView assignMembershipView = fxmlLoader.getController();
+            assignMembershipView.setTheGym(theGym);
+            assignMembershipView.fillUpList();
             stage.setResizable(false);
             stage.setTitle("Hello!");
             stage.setScene(scene);

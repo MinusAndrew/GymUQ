@@ -2,6 +2,7 @@ package uniquindio.edu.co.Controller;
 
 import uniquindio.edu.co.model.Gym;
 import uniquindio.edu.co.model.Membership;
+import uniquindio.edu.co.model.Session;
 import uniquindio.edu.co.model.User;
 import uniquindio.edu.co.model.enums.MembershipPlan;
 import uniquindio.edu.co.model.enums.MembershipType;
@@ -15,6 +16,11 @@ public class AssignMenu {
         //10 for now
         Membership membership = new Membership(10, user, plan, type);
         user.setTheMembership(membership);
+        theGym.registerMembership(membership);
+    }
+    
+    public void assignSessionToUser(User user, Session session){
+        session.addUserToSession(user);
     }
 
 

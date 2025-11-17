@@ -24,7 +24,7 @@ public class Gym {
     private List<Session> sessionList;
     private List<Trainer> trainersList;
     private List<Staff> staffList;
-    private List <Membership> membershipsList;
+    private List<Membership> membershipsList;
 
     /**
      * Gym class Constructor
@@ -41,8 +41,9 @@ public class Gym {
         this.sessionList = new ArrayList<>();
     }
 
-    public void idk(){}
-
+    public void registerMembership(Membership membership){
+        membershipsList.add(membership);
+    }
 
     public void checkMemberships(){
         for (User user : this.usersList) {
@@ -244,5 +245,13 @@ public class Gym {
      */
     public List<Staff> getStaffList() {
         return staffList;
+    }
+
+    /**
+     * Returns the gym's sessionList
+     * @return gym's sessionList
+     */
+    public List<Session> getSessionList() {
+        return sessionList;
     }
 }
