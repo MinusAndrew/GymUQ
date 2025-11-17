@@ -5,13 +5,15 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="576.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.AssignMembershipView">
    <children>
       <ChoiceBox fx:id="membershipBox" layoutX="67.0" layoutY="412.0" prefWidth="150.0" />
       <ChoiceBox fx:id="membershipPlanBox" layoutX="610.0" layoutY="412.0" prefWidth="150.0" />
       <Button fx:id="assignButton" layoutX="380.0" layoutY="492.0" mnemonicParsing="false" onAction="#assignMembershipB" text="Asignar" />
-      <TableView fx:id="userTable" layoutX="61.0" layoutY="45.0" prefHeight="318.0" prefWidth="693.0">
+      <TableView fx:id="userTable" layoutX="63.0" layoutY="53.0" prefHeight="318.0" prefWidth="693.0">
         <columns>
           <TableColumn fx:id="userFirstNameColumn" text="Nombre" />
           <TableColumn fx:id="userLastNameColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" text="Apellido" />
@@ -22,5 +24,12 @@
             <TableColumn fx:id="userMembershipColumn" text="Membrecia" />
         </columns>
       </TableView>
+      <Text layoutX="67.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duración:" />
+      <Text layoutX="610.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de Membrecia:" />
+      <Text layoutX="63.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione un usuario de la lista:" wrappingWidth="557.1300010681152">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

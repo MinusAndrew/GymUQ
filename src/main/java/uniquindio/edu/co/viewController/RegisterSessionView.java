@@ -93,17 +93,19 @@ public class RegisterSessionView implements Initializable {
             int year = grabYear();
             int hour = grabHourVal();
             int minute = grabMinuteVal();
-
             Trainer trainer = trainerTable.getSelectionModel().getSelectedItem();
-            Session session = new Session(maxCap, type, LocalDate.of(year, month, day), name, trainer, LocalTime.of(hour, minute));
-            registerMenu.registerSession(session);
-
-            Alert succsessAlert = new Alert(Alert.AlertType.INFORMATION);
-            succsessAlert.setContentText("La Clase se registró correctamente.");
-
-            succsessAlert.show();
-            currentWindow.close();
-
+            if (year >= 2020 && year <= 7272){
+                Session session = new Session(maxCap, type, LocalDate.of(year, month, day), name, trainer, LocalTime.of(hour, minute));
+                registerMenu.registerSessionToTrainer(trainer, session);
+                registerMenu.registerSession(session);
+                Alert succsessAlert = new Alert(Alert.AlertType.INFORMATION);
+                succsessAlert.setContentText("La Clase se registró correctamente.");
+                succsessAlert.show();
+                currentWindow.close();
+            }
+            else {
+                errorAlert.show();
+            }
         } catch (Exception e) {
             errorAlert.show();
             System.out.println(e);

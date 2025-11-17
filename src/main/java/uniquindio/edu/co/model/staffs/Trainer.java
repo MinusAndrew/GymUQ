@@ -1,11 +1,13 @@
 package uniquindio.edu.co.model.staffs;
 import uniquindio.edu.co.model.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Trainer extends Staff {
 
     //Relationships
-    //private Session theTrainerSession;
-    // not need it
+    private List<Session> sessionTrainerList;
 
     /**
      * Trainer class Constructor
@@ -19,27 +21,21 @@ public class Trainer extends Staff {
      */
     public Trainer(String name, String lastName, int personalId, String phoneNumber, int age, String password) {
         super(name, lastName, personalId, phoneNumber, age, "T"+password);
+        this.sessionTrainerList = new ArrayList<>();
     }
 
-
-    /*
-     * Get Trainer Session
-     * @return Trainer Session
-
-    public Session getTheTrainerSession() {
-        return theTrainerSession;
-    }
 
     /**
-     * Set Trainer Session
-     * @param theTrainerSession of the Trainer
-
-    public void setTheTrainerSession(Session theTrainerSession) {
-        this.theTrainerSession = theTrainerSession;
+     * Returns the list of sessions the Trainer is registered at.
+     * @return list of sessions.
+     */
+    public List<Session> getSessionTrainerList() {
+        return sessionTrainerList;
     }
 
-    */
+    public void addSessionToTrainer(Session session){
+        sessionTrainerList.add(session);
 
-
+    }
 
 }

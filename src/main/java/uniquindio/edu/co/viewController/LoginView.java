@@ -46,6 +46,7 @@ public class LoginView {
                     Scene scene = new Scene(fxmlLoader.load());
                     MainView mainView = fxmlLoader.getController();
                     mainView.setTheGym(theGym);
+                    mainView.setTheReceptionist(theGym.getReceptionistFromName(name));
                     stage.setResizable(false);
                     stage.setTitle("Main Menu");
                     stage.setScene(scene);
@@ -70,16 +71,52 @@ public class LoginView {
                     stage1.setTitle("Admin Menu");
                     stage1.setScene(scene2);
                     stage1.show();
+
+                      /*
+                    stage.setOnCloseRequest(e -> {
+                        System.out.println("puta vida");
+                        Stage stage9 = new Stage();
+                        FXMLLoader fxmlLoader9 = new FXMLLoader(Application.class.getResource("/uniquindio/edu/co/loginMenu.fxml"));
+                        Scene scene9 = null;
+                        try {
+                            scene9 = new Scene(fxmlLoader9.load());
+                        } catch (IOException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        LoginView loginView = fxmlLoader9.getController();
+                        loginView.setTheGym(theGym);
+                        stage9.setResizable(false);
+                        stage9.setTitle("Main Menu");
+                        stage9.setScene(scene9);
+                        stage9.show();
+
+                    } );
+
+                    Will Comeback to this prob
+
+                     */
                     break;
                 case ('T'):
                     FXMLLoader fxmlLoader3 = new FXMLLoader(Application.class.getResource("/uniquindio/edu/co/trainerMenu.fxml"));
                     Scene scene3 = new Scene(fxmlLoader3.load());
                     TrainerView trainerView = fxmlLoader3.getController();
                     trainerView.setTheGym(theGym);
+                    trainerView.setTheTrainer(theGym.getTrainerFromName(name));
+                    trainerView.fillUpSessionList();
                     stage.setResizable(false);
-                    stage.setTitle("Hello!");
+                    stage.setTitle("Trainer Menu");
                     stage.setScene(scene3);
                     stage.show();
+
+                    Stage stage4 = new Stage();
+                    FXMLLoader fxmlLoader4 = new FXMLLoader(Application.class.getResource("/uniquindio/edu/co/mainMenu.fxml"));
+                    Scene scene4 = new Scene(fxmlLoader4.load());
+                    MainView mainView4 = fxmlLoader4.getController();
+                    mainView4.setTheGym(theGym);
+                    stage4.setResizable(false);
+                    stage4.setTitle("Main Menu");
+                    stage4.setScene(scene4);
+                    stage4.show();
                 }
                 currentWindow.close();
             }
@@ -89,6 +126,17 @@ public class LoginView {
 
         }
 
+    public void createLoginMenu() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/uniquindio/edu/co/loginMenu.fxml"));
+        Scene scene1 = new Scene(fxmlLoader.load());
+        LoginView loginView = fxmlLoader.getController();
+        loginView.setTheGym(theGym);
+        stage.setResizable(false);
+        stage.setTitle("Main Menu");
+        stage.setScene(scene1);
+        stage.show();
+    }
 
     public String grabUser(){
         return usernameField.getText();

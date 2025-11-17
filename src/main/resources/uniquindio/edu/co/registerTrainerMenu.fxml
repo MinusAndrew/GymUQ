@@ -4,15 +4,47 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="scenePane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.RegisterTrainerView">
    <children>
-      <Button fx:id="registerButton" layoutX="503.0" layoutY="344.0" mnemonicParsing="false" onAction="#pressRegisterButton" text="Submit" />
-      <TextField fx:id="nameField" layoutX="29.0" layoutY="40.0" promptText="Nombres:" />
-      <TextField fx:id="lastNameField" layoutX="29.0" layoutY="96.0" promptText="Apellidos:" />
-      <TextField fx:id="personalIdField" layoutX="29.0" layoutY="147.0" promptText="Cedula:" />
-      <TextField fx:id="phoneNumberField" layoutX="29.0" layoutY="200.0" promptText="Telefono:" />
-      <TextField fx:id="ageField" layoutX="29.0" layoutY="252.0" promptText="Edad:" />
-      <PasswordField fx:id="trainerPasswdField" layoutX="29.0" layoutY="310.0" promptText="Contra:" />
+      <Button fx:id="registerButton" layoutX="499.0" layoutY="344.0" mnemonicParsing="false" onAction="#pressRegisterButton" text="Registrar" />
+      <TextField fx:id="nameField" layoutX="47.0" layoutY="81.0" promptText="Nombres:" />
+      <TextField fx:id="lastNameField" layoutX="47.0" layoutY="146.0" promptText="Apellidos:" />
+      <TextField fx:id="personalIdField" layoutX="47.0" layoutY="212.0" promptText="Cedula:" />
+      <TextField fx:id="phoneNumberField" layoutX="310.0" layoutY="80.0" promptText="Telefono:" />
+      <TextField fx:id="ageField" layoutX="310.0" layoutY="146.0" promptText="Edad:" />
+      <PasswordField fx:id="trainerPasswdField" layoutX="219.0" layoutY="318.0" promptText="Contraseña:" />
+      <Text layoutX="47.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre del Entrenador:" wrappingWidth="186.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="47.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido del Entrenador:" wrappingWidth="186.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="47.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cedula del Entrenador:" wrappingWidth="186.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="190.0" layoutY="306.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña del entrenador:" wrappingWidth="240.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="310.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefono del Entrenador:" wrappingWidth="198.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="310.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edad del Entrenador:" wrappingWidth="198.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

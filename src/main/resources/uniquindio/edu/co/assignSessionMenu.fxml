@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane fx:id="scenePane" prefHeight="690.0" prefWidth="886.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.AssignSessionView">
+<AnchorPane fx:id="scenePane" prefHeight="690.0" prefWidth="886.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.AssignSessionView">
    <children>
-      <TableView fx:id="userTable" layoutX="33.0" layoutY="32.0" prefHeight="240.0" prefWidth="818.0">
+      <TableView fx:id="userTable" layoutX="34.0" layoutY="58.0" prefHeight="240.0" prefWidth="818.0">
          <columns>
             <TableColumn fx:id="userFirstNameColumn" text="Nombre" />
             <TableColumn fx:id="userLastNameColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" text="Apellido" />
@@ -18,16 +16,26 @@
             <TableColumn fx:id="userEmailColumn" text="Email" />
          </columns>
       </TableView>
-      <TableView fx:id="sessionTable" layoutX="34.0" layoutY="319.0" prefHeight="200.0" prefWidth="818.0">
+      <TableView fx:id="sessionTable" layoutX="34.0" layoutY="357.0" prefHeight="200.0" prefWidth="818.0">
         <columns>
           <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Nombre" />
           <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Tipo" />
             <TableColumn fx:id="capacityColumn" prefWidth="75.0" text="Cupo" />
             <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Fecha" />
             <TableColumn fx:id="hourColumn" prefWidth="75.0" text="Hora" />
-            <TableColumn fx:id="trainerColumn" prefWidth="101.0" text="Entrenador" />
+            <TableColumn fx:id="trainerColumn" prefWidth="239.0" text="Entrenador" />
         </columns>
       </TableView>
       <Button layoutX="386.0" layoutY="615.0" mnemonicParsing="false" onAction="#assignSessionB" text="Asignar a Clase" />
+      <Text layoutX="34.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione Un Usuario de la lista" wrappingWidth="500.13000106811523">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="34.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione Una Clase de la lista" wrappingWidth="500.13000106811523">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

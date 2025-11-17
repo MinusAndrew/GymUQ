@@ -135,13 +135,10 @@ public class Staff {
 
     @Override
     public String toString() {
-        return "Staff{" +
-                "name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", personalId=" + personalId +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", age=" + age +
-                ", password='" + password + '\'' +
-                '}';
+        return "Staff: \n" +
+                "name: '" + name + '\n' +
+                "lastName: '" + lastName + '\n' +
+                "personalId: " + personalId + '\n' +
+                "phoneNumber: '" + phoneNumber;
     }
 }

@@ -106,9 +106,10 @@ public class Session {
                     .from("Gym", "jacobo.londonod@uqvirtual.edu.co")
                     .to(user.getName(), user.getEmail())
                     .withSubject("Registro exitoso en la clase")
-                    .withPlainText("Usted se ha registrado en la clase " + this.name + " para el dia "+ this.schedule)
+                    .withPlainText("Usted se ha registrado en la clase " + this.name + " para el dia "+ this.schedule + " A las " + this.hour)
                     .buildEmail();
             Mailer mailer = MailerBuilder
+                    // Same here lol
                     .withSMTPServer("smtp.gmail.com", 587, "londonojacobo92@gmail.com", "gzxg xxyx xbqb lzey")
                     .withTransportStrategy(TransportStrategy.SMTP_TLS) // or SMTP_SSL, SMTPS
                     .buildMailer();
