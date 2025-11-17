@@ -8,8 +8,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import uniquindio.edu.co.Controller.RegisterMenu;
 import uniquindio.edu.co.model.Gym;
-import uniquindio.edu.co.model.Individual;
-import uniquindio.edu.co.model.Student;
 import uniquindio.edu.co.model.User;
 import uniquindio.edu.co.model.staffs.Trainer;
 

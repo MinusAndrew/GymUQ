@@ -86,7 +86,7 @@ public class Gym {
     }
 
     /**
-     * Registers a staff member into the gym's trainerList
+     * Registers a staff member into the gym's staffList
      * @param staff that will be added.
      */
     public void registerStaff(Staff staff){
@@ -110,7 +110,7 @@ public class Gym {
     }
 
     /**
-     * Removes the staff member from the gym's trainerList
+     * Removes the staff member from the gym's staffList
      * @param staff that will be removed.
      */
     public void removeStaff(Staff staff){
@@ -223,6 +223,7 @@ public class Gym {
         this.trainersList = trainersList;
     }
 
+
     public void sendEmailMembership(User user){
         Email email = EmailBuilder.startingBlank()
                 .from("Gym", "jacobo.londonod@uqvirtual.edu.co")
@@ -237,4 +238,11 @@ public class Gym {
         mailer.sendMail(email);
     }
 
+    /**
+     * Returns the list of the staff members inside the gym.
+     * @return the gym's staffList
+     */
+    public List<Staff> getStaffList() {
+        return staffList;
+    }
 }

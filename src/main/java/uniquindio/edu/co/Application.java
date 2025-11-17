@@ -22,11 +22,11 @@ public class Application extends javafx.application.Application {
         try {
             Gym gym = new Gym("GymUQ", 727);
             Receptionist receptionist = new Receptionist("jaco","londono",1128,"311",18,"Switch");
-            User user = new User("Juan","Castaño",109872,"311000000",17);
+            User user = new User("Juan","Castaño",109872,"311000000",17, "");
             Membership membership = new Membership(80000,user, MembershipPlan.BASIC, MembershipType.MONTHLY);
             Admin admin1 = new Admin("andrew", "idfk", 727, "727", 18, "DOFAI");
 
-            User user1 = new User("Esteban","Gutierrez",109802,"323000000",17);
+            User user1 = new User("Esteban","Gutierrez",109802,"323000000",17, "");
 
             Trainer trainer = new Trainer("Jay", "ninjers", 7227, "888", 26, "123");
 

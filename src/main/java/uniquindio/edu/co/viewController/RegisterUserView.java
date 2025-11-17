@@ -11,6 +11,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import uniquindio.edu.co.Controller.RegisterMenu;
 import uniquindio.edu.co.model.*;
+import uniquindio.edu.co.model.users.Individual;
+import uniquindio.edu.co.model.users.Student;
 
 
 import java.net.URL;
