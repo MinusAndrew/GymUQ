@@ -78,13 +78,13 @@ public class AssignView implements Initializable {
         membershipBox.getItems().addAll(getAllMembershipTypes());
         membershipPlanBox.getItems().addAll(getAllMembershipPlans());
 
-        userFirstNameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("name"));
-        userLastNameColumn.setCellValueFactory(new PropertyValueFactory<User, String>("lastName"));
-        userPersonalIdColumn.setCellValueFactory(new PropertyValueFactory<User, Integer>("personalId"));
-        userPhoneNumColumn.setCellValueFactory(new PropertyValueFactory<User, String>("phoneNumber"));
-        userAgeColumn.setCellValueFactory(new PropertyValueFactory<User, Integer>("age"));
-        userEmailColumn.setCellValueFactory(new PropertyValueFactory<User, String>("email"));
-        userMembershipColumn.setCellValueFactory(new PropertyValueFactory<User, String>("theMembership"));
+        userFirstNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        userLastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        userPersonalIdColumn.setCellValueFactory(new PropertyValueFactory<>("personalId"));
+        userPhoneNumColumn.setCellValueFactory(new PropertyValueFactory<>("phoneNumber"));
+        userAgeColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
+        userEmailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        userMembershipColumn.setCellValueFactory(new PropertyValueFactory<>("theMembership"));
 
 
         /*

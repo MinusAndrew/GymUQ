@@ -63,7 +63,7 @@ public class RegisterTrainerView {
             succsessAlert.setContentText("El Usuario se registró correctamente.");
 
             newTrainer = new Trainer(name, lastName, personalId, phoneNumber, age, passwd);
-            registerMenu.registerStaff(newTrainer);
+            registerMenu.registerTrainer(newTrainer);
             currentWindow.close();
 
             succsessAlert.show();
