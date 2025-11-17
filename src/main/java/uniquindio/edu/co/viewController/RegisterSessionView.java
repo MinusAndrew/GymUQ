@@ -17,6 +17,8 @@ import uniquindio.edu.co.model.staffs.Trainer;
 import java.lang.ref.PhantomReference;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 public class RegisterSessionView implements Initializable {
@@ -47,6 +49,10 @@ public class RegisterSessionView implements Initializable {
     private TextField monthLabel;
     @FXML
     private TextField yearLabel;
+    @FXML
+    private TextField hourLabel;
+    @FXML
+    private TextField minuteLabel;
 
     @FXML
     private AnchorPane scenePane;
@@ -85,9 +91,11 @@ public class RegisterSessionView implements Initializable {
             int day = grabDay();
             int month = grabMonth();
             int year = grabYear();
+            int hour = grabHourVal();
+            int minute = grabMinuteVal();
 
             Trainer trainer = trainerTable.getSelectionModel().getSelectedItem();
-            Session session = new Session(maxCap, type, LocalDate.of(year, month, day), name, trainer);
+            Session session = new Session(maxCap, type, LocalDate.of(year, month, day), name, trainer, LocalTime.of(hour, minute));
             registerMenu.registerSession(session);
 
             Alert succsessAlert = new Alert(Alert.AlertType.INFORMATION);
@@ -126,6 +134,14 @@ public class RegisterSessionView implements Initializable {
 
     public int grabMaxCap(){
         return Integer.parseInt(maxCapLabel.getText());
+    }
+
+    public int grabHourVal(){
+        return Integer.parseInt(hourLabel.getText());
+    }
+
+    public int grabMinuteVal(){
+        return Integer.parseInt(minuteLabel.getText());
     }
 
     public void setTheGym(Gym theGym) {

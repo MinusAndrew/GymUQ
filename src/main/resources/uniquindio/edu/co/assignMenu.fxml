@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="576.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.AssignView">
+<AnchorPane prefHeight="576.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.AssignMembershipView">
    <children>
       <ChoiceBox fx:id="membershipBox" layoutX="67.0" layoutY="412.0" prefWidth="150.0" />
       <ChoiceBox fx:id="membershipPlanBox" layoutX="610.0" layoutY="412.0" prefWidth="150.0" />

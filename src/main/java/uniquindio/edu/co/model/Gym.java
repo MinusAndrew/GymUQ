@@ -246,4 +246,12 @@ public class Gym {
     public List<Staff> getStaffList() {
         return staffList;
     }
+
+    /**
+     * Returns the gym's sessionList
+     * @return gym's sessionList
+     */
+    public List<Session> getSessionList() {
+        return sessionList;
+    }
 }

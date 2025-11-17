@@ -21,8 +21,10 @@
       <TextField fx:id="typeLabel" layoutX="384.0" layoutY="400.0" promptText="Tipo de Clase:" />
       <TextField fx:id="dayLabel" layoutX="278.0" layoutY="459.0" prefHeight="26.0" prefWidth="62.0" promptText="Dia:" />
       <TextField fx:id="nameLabel" layoutX="640.0" layoutY="400.0" promptText="Nombre:" />
-      <TextField fx:id="monthLabel" layoutX="434.0" layoutY="459.0" prefHeight="26.0" prefWidth="49.0" promptText="Mes:" />
-      <Button fx:id="button" layoutX="428.0" layoutY="548.0" mnemonicParsing="false" onAction="#createSessionB" text="Crear" />
+      <TextField fx:id="monthLabel" layoutX="441.0" layoutY="459.0" prefHeight="26.0" prefWidth="49.0" promptText="Mes:" />
       <TextField fx:id="yearLabel" layoutX="591.0" layoutY="459.0" prefHeight="26.0" prefWidth="49.0" promptText="Año:" />
+      <Button fx:id="button" layoutX="439.0" layoutY="547.0" mnemonicParsing="false" onAction="#createSessionB" text="Crear" />
+      <TextField fx:id="hourLabel" layoutX="358.0" layoutY="500.0" prefHeight="26.0" prefWidth="52.0" promptText="24" />
+      <TextField fx:id="minuteLabel" layoutX="522.0" layoutY="500.0" prefHeight="26.0" prefWidth="49.0" promptText="59" />
    </children>
 </AnchorPane>

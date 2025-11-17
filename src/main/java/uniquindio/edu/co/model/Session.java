@@ -6,6 +6,9 @@ import org.simplejavamail.api.mailer.config.TransportStrategy;
 import org.simplejavamail.email.EmailBuilder;
 import org.simplejavamail.mailer.MailerBuilder;
 import uniquindio.edu.co.model.staffs.*;
+
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
@@ -17,6 +20,7 @@ public class Session {
     private String type;
     private LocalDate schedule;
     private String name;
+    private LocalTime hour;
 
     // Relationships
     private Trainer theTrainer;
@@ -30,20 +34,22 @@ public class Session {
      * @param schedule of the Session
      * @param name of the Session
      */
-    public Session(int maxCapacity, String type, LocalDate schedule, String name, Trainer theTrainer) {
+    public Session(int maxCapacity, String type, LocalDate schedule, String name, Trainer theTrainer, LocalTime hour) {
         this.maxCapacity = maxCapacity;
         this.type = type;
         this.schedule = schedule;
         this.name = name;
         this.theTrainer = theTrainer;
+        this.hour = hour;
         this.sessionUsersList=new ArrayList<>();
+
 
     }
 
     public void addUserToSession(User user){
         assert sessionUsersList.size() < maxCapacity : "Session is full";
-        sessionUsersList.add(user);
-        sendEmailSession(user);
+            sessionUsersList.add(user);
+            sendEmailSession(user);
     }
 
     public int getMaxCapacity() {
@@ -94,7 +100,7 @@ public class Session {
         this.sessionUsersList = sessionUsersList;
     }
 
-    void sendEmailSession(User user){
+    public void sendEmailSession(User user){
         try {
             Email email = EmailBuilder.startingBlank()
                     .from("Gym", "jacobo.londonod@uqvirtual.edu.co")
@@ -111,5 +117,9 @@ public class Session {
             System.out.println("Something failed " + e);
         }
 
+    }
+
+    public LocalTime getHour() {
+        return hour;
     }
 }
