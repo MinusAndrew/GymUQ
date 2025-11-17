@@ -55,8 +55,6 @@ public class Application extends javafx.application.Application {
             stage.setTitle("Login Screen");
             stage.setScene(scene);
             stage.show();
-
-
         }   catch (IOException e) {
             e.printStackTrace();
         }

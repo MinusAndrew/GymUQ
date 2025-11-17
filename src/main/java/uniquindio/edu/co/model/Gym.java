@@ -41,6 +41,7 @@ public class Gym {
         this.sessionList = new ArrayList<>();
     }
 
+
     public void registerMembership(Membership membership){
         membershipsList.add(membership);
     }
@@ -84,6 +85,27 @@ public class Gym {
             }
         }
         return flag;
+    }
+
+
+    public Receptionist getReceptionistFromName(String name){
+        for(Staff receptionist : staffList){
+            if(receptionist.getName().equals(name)){
+                return (Receptionist) receptionist;
+            }
+        }
+        //if this happens there's no receptionist with such name thus it cannot access their Functionality
+        return null;
+    }
+
+    public Trainer getTrainerFromName(String name) {
+        for (Staff trainer : staffList) {
+            if (trainer.getName().equals(name)) {
+                return (Trainer) trainer;
+            }
+        }
+        //if this happens there's no trainer with such name thus it cannot access their Functionality
+        return null;
     }
 
     /**
@@ -233,6 +255,7 @@ public class Gym {
                 .withPlainText("Tu membresia caduca en 7 dias")
                 .buildEmail();
         Mailer mailer = MailerBuilder
+                //I don't think putting your token as plain text is a good idea
                 .withSMTPServer("smtp.gmail.com", 587, "londonojacobo92@gmail.com", "gzxg xxyx xbqb lzey")
                 .withTransportStrategy(TransportStrategy.SMTP_TLS) // or SMTP_SSL, SMTPS
                 .buildMailer();

@@ -3,10 +3,7 @@ package uniquindio.edu.co.viewController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import uniquindio.edu.co.Controller.AssignMenu;
 import uniquindio.edu.co.Controller.ModifyTrainerMenu;
@@ -17,6 +14,7 @@ import uniquindio.edu.co.model.enums.MembershipType;
 import uniquindio.edu.co.model.staffs.Trainer;
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ModifyTrainerView implements Initializable {
@@ -104,13 +102,19 @@ public class ModifyTrainerView implements Initializable {
     }
 
     public void deleteTrainerB(){
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
         ModifyTrainerMenu modifyTrainerMenu = new ModifyTrainerMenu();
         modifyTrainerMenu.setTheGym(theGym);
         Trainer trainer = trainerTable.getSelectionModel().getSelectedItem();
+        confirmAlert.setContentText("Seguro que quiere eliminar el Entrenador?");
+        Optional<ButtonType> result = confirmAlert.showAndWait();
+        if(result.get() == ButtonType.OK){
         modifyTrainerMenu.removeTrainerFromGym(trainer);
-
         trainerTable.getItems().remove(trainer);
-        //will comeback later to put a goofy ahh workaround
+        }
+        else {
+            trainerTable.refresh();
+        }
     }
 
 

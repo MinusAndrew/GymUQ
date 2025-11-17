@@ -5,10 +5,12 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="scenePane" prefHeight="640.0" prefWidth="917.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.RegisterSessionView">
    <children>
-      <TableView fx:id="trainerTable" layoutX="70.0" layoutY="52.0" prefHeight="318.0" prefWidth="790.0">
+      <TableView fx:id="trainerTable" layoutX="70.0" layoutY="61.0" prefHeight="318.0" prefWidth="790.0">
          <columns>
             <TableColumn fx:id="trainerFirstNameColumn" text="Nombre" />
             <TableColumn fx:id="trainerLastNameColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" text="Apellido" />
@@ -17,14 +19,26 @@
             <TableColumn fx:id="trainerPhoneNumColumn" text="Telefono" />
          </columns>
       </TableView>
-      <TextField fx:id="maxCapLabel" layoutX="116.0" layoutY="400.0" promptText="Capacidad Max:" />
-      <TextField fx:id="typeLabel" layoutX="384.0" layoutY="400.0" promptText="Tipo de Clase:" />
-      <TextField fx:id="dayLabel" layoutX="278.0" layoutY="459.0" prefHeight="26.0" prefWidth="62.0" promptText="Dia:" />
-      <TextField fx:id="nameLabel" layoutX="640.0" layoutY="400.0" promptText="Nombre:" />
-      <TextField fx:id="monthLabel" layoutX="441.0" layoutY="459.0" prefHeight="26.0" prefWidth="49.0" promptText="Mes:" />
-      <TextField fx:id="yearLabel" layoutX="591.0" layoutY="459.0" prefHeight="26.0" prefWidth="49.0" promptText="Año:" />
-      <Button fx:id="button" layoutX="439.0" layoutY="547.0" mnemonicParsing="false" onAction="#createSessionB" text="Crear" />
-      <TextField fx:id="hourLabel" layoutX="358.0" layoutY="500.0" prefHeight="26.0" prefWidth="52.0" promptText="24" />
-      <TextField fx:id="minuteLabel" layoutX="522.0" layoutY="500.0" prefHeight="26.0" prefWidth="49.0" promptText="59" />
+      <TextField fx:id="maxCapLabel" layoutX="116.0" layoutY="410.0" promptText="Capacidad Max:" />
+      <TextField fx:id="typeLabel" layoutX="384.0" layoutY="410.0" promptText="Tipo de Clase:" />
+      <TextField fx:id="dayLabel" layoutX="278.0" layoutY="466.0" prefHeight="26.0" prefWidth="62.0" promptText="Dia:" />
+      <TextField fx:id="nameLabel" layoutX="640.0" layoutY="410.0" promptText="Nombre:" />
+      <TextField fx:id="monthLabel" layoutX="440.0" layoutY="464.0" prefHeight="26.0" prefWidth="49.0" promptText="Mes:" />
+      <TextField fx:id="yearLabel" layoutX="591.0" layoutY="464.0" prefHeight="26.0" prefWidth="49.0" promptText="Año:" />
+      <Button fx:id="button" layoutX="440.0" layoutY="569.0" mnemonicParsing="false" onAction="#createSessionB" text="Crear" />
+      <TextField fx:id="hourLabel" layoutX="401.0" layoutY="526.0" prefHeight="26.0" prefWidth="52.0" promptText="24" />
+      <TextField fx:id="minuteLabel" layoutX="475.0" layoutY="526.0" prefHeight="26.0" prefWidth="49.0" promptText="59" />
+      <Text layoutX="70.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione un Entrenador de la lista:">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Text>
+      <Text layoutX="116.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacidad de la Clase:" wrappingWidth="150.13000106811523" />
+      <Text layoutX="390.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo de la Clase:" wrappingWidth="150.13000106811523" />
+      <Text layoutX="640.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de la Clase:" wrappingWidth="150.13000106811523" />
+      <Text layoutX="278.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dia: XX" />
+      <Text layoutX="441.0" layoutY="456.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes: XX" />
+      <Text layoutX="585.0" layoutY="455.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Año: XXXX" />
+      <Text layoutX="399.0" layoutY="514.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora: Formato 24HRs" />
    </children>
 </AnchorPane>

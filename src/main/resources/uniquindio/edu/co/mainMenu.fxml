@@ -12,9 +12,11 @@
             <Font size="40.0" />
          </font>
       </Text>
-      <Button layoutX="540.0" layoutY="418.0" mnemonicParsing="false" onAction="#assignUserToSessionB" prefHeight="26.0" prefWidth="158.0" text="Reservar Clase" textAlignment="CENTER" />
-      <Button layoutX="541.0" layoutY="343.0" mnemonicParsing="false" onAction="#assignMembershipC" prefHeight="26.0" prefWidth="158.0" text="Asignar Membresia" textAlignment="CENTER" />
-      <Button layoutX="541.0" layoutY="305.0" mnemonicParsing="false" onAction="#registerUserC" prefHeight="26.0" prefWidth="158.0" text="Registrar Usuario" textAlignment="CENTER" />
-      <Button layoutX="541.0" layoutY="381.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="158.0" text="Chequear Membresia" textAlignment="CENTER" />
+      <Button layoutX="462.0" layoutY="252.0" mnemonicParsing="false" onAction="#assignUserToSessionB" prefHeight="26.0" prefWidth="158.0" text="Reservar Clase" textAlignment="CENTER" />
+      <Button layoutX="88.0" layoutY="252.0" mnemonicParsing="false" onAction="#assignMembershipC" prefHeight="26.0" prefWidth="158.0" text="Asignar Membresia" textAlignment="CENTER" />
+      <Button layoutX="88.0" layoutY="161.0" mnemonicParsing="false" onAction="#registerUserC" prefHeight="26.0" prefWidth="158.0" text="Registrar Usuario" textAlignment="CENTER" />
+      <Button layoutX="462.0" layoutY="161.0" mnemonicParsing="false" onAction="#checkMembershipB" prefHeight="26.0" prefWidth="158.0" text="Chequear Membresia" textAlignment="CENTER" />
+      <Button layoutX="40.0" layoutY="439.0" mnemonicParsing="false" onAction="#openStaffStageB" prefHeight="26.0" prefWidth="177.0" text="Abrir panel de Staff" />
+      <Button layoutX="560.0" layoutY="439.0" mnemonicParsing="false" onAction="#receptionistReportB" text="Generar Reporte" />
    </children>
 </AnchorPane>

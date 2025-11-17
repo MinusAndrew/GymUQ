@@ -25,6 +25,10 @@ public class RegisterMenu {
         theGym.registerSession(session);
     }
 
+    public void registerSessionToTrainer(Trainer trainer, Session session){
+        trainer.addSessionToTrainer(session);
+    }
+
     public void setTheGym(Gym theGym) {
         this.theGym = theGym;
     }

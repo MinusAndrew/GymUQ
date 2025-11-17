@@ -2,6 +2,7 @@ package uniquindio.edu.co.viewController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -92,15 +93,22 @@ public class AssignMembershipView implements Initializable {
     }
 
     public void assignMembershipB(){
-        AssignMenu assignMenu = new AssignMenu();
-        assignMenu.setTheGym(theGym);
-        User user = userTable.getSelectionModel().getSelectedItem();
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.setContentText("No se ha asignado, \nverifique que haya seleccionado todos los datos.");
+        try {
+            AssignMenu assignMenu = new AssignMenu();
+            assignMenu.setTheGym(theGym);
+            User user = userTable.getSelectionModel().getSelectedItem();
 
-        MembershipPlan planOption = MembershipPlan.valueOf(membershipPlanBox.getValue());
-        MembershipType typeOption = MembershipType.valueOf(membershipBox.getValue());
+            MembershipPlan planOption = MembershipPlan.valueOf(membershipPlanBox.getValue());
+            MembershipType typeOption = MembershipType.valueOf(membershipBox.getValue());
 
-        assignMenu.assignMembershipToUser(user.getPersonalId(), planOption, typeOption);
-        userTable.refresh();
+            assignMenu.assignMembershipToUser(user.getPersonalId(), planOption, typeOption);
+            userTable.refresh();
+        } catch (Exception e) {
+            errorAlert.show();
+            throw new RuntimeException(e);
+        }
     }
 
 }
