@@ -20,8 +20,8 @@ public class Student extends User {
         super(name, lastName, personalId, phoneNumber, age, email, theMembership, theUserSession);
     }
 
-    public Student(String name, String lastName, int personalId, String phoneNumber, int age) {
-        super(name, lastName, personalId, phoneNumber, age);
+    public Student(String name, String lastName, int personalId, String phoneNumber, int age, String email) {
+        super(name, lastName, personalId, phoneNumber, age, email);
     }
 
 

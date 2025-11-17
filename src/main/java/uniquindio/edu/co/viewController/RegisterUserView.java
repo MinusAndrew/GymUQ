@@ -13,6 +13,7 @@ import uniquindio.edu.co.Controller.RegisterMenu;
 import uniquindio.edu.co.model.*;
 import uniquindio.edu.co.model.users.Individual;
 import uniquindio.edu.co.model.users.Student;
+import uniquindio.edu.co.model.users.Worker;
 
 
 import java.net.URL;
@@ -34,6 +35,8 @@ public class RegisterUserView implements Initializable {
     private TextField ageField;
     @FXML
     private ChoiceBox<String> userType;
+    @FXML
+    private TextField emailField;
 
     @FXML
     private AnchorPane scenePane;
@@ -63,6 +66,7 @@ public class RegisterUserView implements Initializable {
             String phoneNumber = grabPhoneNum();
             RegisterMenu registerMenu = new RegisterMenu();
             registerMenu.setTheGym(theGym);
+            String email = grabEmail();
 
             String option = userType.getValue();
 
@@ -73,17 +77,17 @@ public class RegisterUserView implements Initializable {
 
             switch (option){
                 case ("Estudiante"):
-                    newUser = new Student(name, lastName, personalId, phoneNumber, age);
+                    newUser = new Student(name, lastName, personalId, phoneNumber, age, email);
                     registerMenu.registerUser(newUser);
                     currentWindow.close();
                     break;
                 case ("Trabajador"):
-                 //   newUser = new Worker(name, lastName, personalId, phoneNumber, age);
-                    //registerMenu.registerUser(newUser);
+                    newUser = new Worker(name, lastName, personalId, phoneNumber, age, email);
+                    registerMenu.registerUser(newUser);
                     currentWindow.close();
                     break;
                 case ("Externo"):
-                    newUser = new Individual(name, lastName, personalId, phoneNumber, age);
+                    newUser = new Individual(name, lastName, personalId, phoneNumber, age, email);
                     registerMenu.registerUser(newUser);
                     currentWindow.close();
                     break;
@@ -92,6 +96,7 @@ public class RegisterUserView implements Initializable {
         }
         catch (Throwable e){
             errorAlert.show();
+            System.out.println(e);
         }
     }
 
@@ -105,6 +110,10 @@ public class RegisterUserView implements Initializable {
 
     public String grabLastName(){
         return lastNameField.getText();
+    }
+
+    public String grabEmail(){
+        return emailField.getText();
     }
 
     public int grabPersonalId(){
