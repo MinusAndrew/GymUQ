@@ -39,7 +39,11 @@ public class Membership {
     }
 
 
-    int monthsPerType(){
+    /**
+     * Method that returns the number of months for a type of membership.
+     * @return the number of months for a type of membership.
+     */
+    private int monthsPerType(){
         MembershipType memb = getType();
         if(memb == MembershipType.MONTHLY){
             return 1;
@@ -52,11 +56,17 @@ public class Membership {
         }
     }
 
-
+    //This method is only for testing purposes
+    /**
+     * Sets the end date of the membership.
+     * @param date the end date of the membership.
+     */
     public void setEndDate (LocalDate date){
         this.endDate = date;
     }
 
+
+    //Getters and Setters
 
     /**
      * Gets cost of the membership.
@@ -144,7 +154,6 @@ public class Membership {
     public MembershipType getType() {
         return type;
     }
-
 
     /**
      * Sets the membership type.
