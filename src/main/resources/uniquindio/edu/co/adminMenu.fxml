@@ -7,13 +7,14 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uniquindio.edu.co.viewController.AdminView">
    <children>
-      <Button layoutX="224.0" layoutY="187.0" mnemonicParsing="false" onAction="#registerTrainerB" prefHeight="26.0" prefWidth="166.0" text="Registar Entrenador" />
+      <Button layoutX="224.0" layoutY="174.0" mnemonicParsing="false" onAction="#registerTrainerB" prefHeight="26.0" prefWidth="166.0" text="Registar Entrenador" />
       <Button layoutX="432.0" layoutY="337.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="141.0" text="Generar Reporte" />
       <Text layoutX="14.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AdminMenu" wrappingWidth="263.03599548339844">
          <font>
             <Font size="40.0" />
          </font>
       </Text>
-      <Button layoutX="224.0" layoutY="242.0" mnemonicParsing="false" onAction="#modifyTrainerB" prefHeight="26.0" prefWidth="166.0" text="Modificar Entrenadores" />
+      <Button layoutX="224.0" layoutY="220.0" mnemonicParsing="false" onAction="#modifyTrainerB" prefHeight="26.0" prefWidth="166.0" text="Modificar Entrenadores" />
+      <Button layoutX="224.0" layoutY="267.0" mnemonicParsing="false" onAction="#sessionButton" prefHeight="26.0" prefWidth="166.0" text="Crear Clase" />
    </children>
 </AnchorPane>

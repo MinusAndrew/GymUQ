@@ -15,6 +15,7 @@ public class AssignMenu {
         //10 for now
         Membership membership = new Membership(10, user, plan, type);
         user.setTheMembership(membership);
+        theGym.registerMembership(membership);
     }
 
 

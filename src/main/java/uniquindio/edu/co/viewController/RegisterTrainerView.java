@@ -2,17 +2,12 @@ package uniquindio.edu.co.viewController;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import uniquindio.edu.co.Controller.RegisterMenu;
 import uniquindio.edu.co.model.Gym;
-import uniquindio.edu.co.model.User;
 import uniquindio.edu.co.model.staffs.Trainer;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class RegisterTrainerView {
 

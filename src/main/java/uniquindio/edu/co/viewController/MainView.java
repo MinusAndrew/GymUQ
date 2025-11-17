@@ -41,7 +41,7 @@ public class MainView {
     }
 
 
-    public void assignUserToSessionC(ActionEvent event){
+    public void assignUserToSessionB(ActionEvent event){
 
 
 

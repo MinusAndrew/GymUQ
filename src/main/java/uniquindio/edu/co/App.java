@@ -29,8 +29,6 @@ public class App {
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
 
-
-
         Receptionist receptionist = new Receptionist("jaco","londono",1128,"311",18,"Switch");
 
         User user = new User("Juan","Castaño",109872,"311000000",17,null);
