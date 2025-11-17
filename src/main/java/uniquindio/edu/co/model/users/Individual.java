@@ -21,8 +21,8 @@ public class Individual extends User {
         super(name, lastName, personalId, phoneNumber, age, email, theMembership, theUserSession);
     }
 
-    public Individual(String name, String lastName, int personalId, String phoneNumber, int age) {
-        super(name, lastName, personalId, phoneNumber, age);
+    public Individual(String name, String lastName, int personalId, String phoneNumber, int age, String email) {
+        super(name, lastName, personalId, phoneNumber, age, email);
     }
 
 }

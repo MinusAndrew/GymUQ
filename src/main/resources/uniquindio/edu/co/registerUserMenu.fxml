@@ -14,5 +14,6 @@
       <TextField fx:id="phoneNumberField" layoutX="29.0" layoutY="200.0" promptText="Telefono:" />
       <TextField fx:id="ageField" layoutX="29.0" layoutY="252.0" promptText="Edad:" />
       <ChoiceBox fx:id="userType" layoutX="415.0" layoutY="53.0" prefWidth="150.0" />
+      <TextField fx:id="emailField" layoutX="29.0" layoutY="318.0" promptText="Email:" />
    </children>
 </AnchorPane>
