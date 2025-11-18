@@ -122,19 +122,27 @@ public class MainView {
 
 
     public void receptionistReportB(){
-        try {
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/reportMenu.fxml"));
-            Scene scene = new Scene(fxmlLoader.load());
-            ReportView reportView = fxmlLoader.getController();
-            reportView.setTheGym(theGym);
-            reportView.setContent();
-            stage.setResizable(false);
-            stage.setTitle("Reporte Recepcionista");
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        errorAlert.setContentText("No se ha podido acceder a la funcionalidad.\nverifique que esté iniciado sesión como Recepcionista.");
+        if (theReceptionist == null){
+            errorAlert.show();
+        }
+        else {
+            try {
+                Stage stage = new Stage();
+                FXMLLoader fxmlLoader = new FXMLLoader(uniquindio.edu.co.Application.class.getResource("/uniquindio/edu/co/reportMenu.fxml"));
+                Scene scene = new Scene(fxmlLoader.load());
+                ReportView reportView = fxmlLoader.getController();
+                reportView.setTheGym(theGym);
+                reportView.setTheReceptionist(theReceptionist);
+                reportView.setContent();
+                stage.setResizable(false);
+                stage.setTitle("Reporte Recepcionista");
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
