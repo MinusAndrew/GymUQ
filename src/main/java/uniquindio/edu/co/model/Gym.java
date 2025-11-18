@@ -42,70 +42,14 @@ public class Gym {
     }
 
 
+    //Register
+
+    /**
+     * Registers a membership into the gym's membershipsList
+     * @param membership that will be added.
+     */
     public void registerMembership(Membership membership){
         membershipsList.add(membership);
-    }
-
-    public void checkMemberships(){
-        for (User user : this.usersList) {
-            Membership memb = user.getTheMembership();
-            boolean status = memb.isStatus();
-            memb.updateStatus();
-            if(status!= memb.isStatus()){
-                System.out.println(memb);
-            }
-            if(memb.getEndDate().minusDays(7).isEqual(LocalDate.now())){
-                sendEmailMembership(user);
-            }
-        }
-    }
-
-    public List<User> mostActiveUsers(){
-        List<User> mostActiveUsers = new ArrayList<>();
-        List<User> test = new ArrayList<>();
-        for (Session session : this.sessionList) {
-            List<User> u = session.getSessionUsersList();
-            for(User u1 : u){
-                if(!test.contains(u1)){
-                    test.add(u1);
-                }
-            }
-        }
-
-        return mostActiveUsers;
-    }
-
-
-    public boolean login(String name, String password){
-        boolean flag = false;
-        for(Staff staff : staffList){
-            if(staff.getName().equals(name) && staff.comparePasswords(password)){
-                flag = true;
-                break;
-            }
-        }
-        return flag;
-    }
-
-
-    public Receptionist getReceptionistFromName(String name){
-        for(Staff receptionist : staffList){
-            if(receptionist.getName().equals(name)){
-                return (Receptionist) receptionist;
-            }
-        }
-        //if this happens there's no receptionist with such name thus it cannot access their Functionality
-        return null;
-    }
-
-    public Trainer getTrainerFromName(String name) {
-        for (Staff trainer : staffList) {
-            if (trainer.getName().equals(name)) {
-                return (Trainer) trainer;
-            }
-        }
-        //if this happens there's no trainer with such name thus it cannot access their Functionality
-        return null;
     }
 
     /**
@@ -116,29 +60,11 @@ public class Gym {
         staffList.add(staff);
     }
 
-
     /**
      * Registers a trainer into the gym's trainerList
      * @param trainer that will be added.
      */
     public void registerTrainer(Trainer trainer){ trainersList.add(trainer); }
-
-
-    /**
-     * Removes trainer from the gym's trainerList
-     * @param trainer that will be removed.
-     */
-    public void removeTrainer(Trainer trainer){
-        trainersList.remove(trainer);
-    }
-
-    /**
-     * Removes the staff member from the gym's staffList
-     * @param staff that will be removed.
-     */
-    public void removeStaff(Staff staff){
-        staffList.remove(staff);
-    }
 
     /**
      * Method to register a user in the usersList.
@@ -147,6 +73,46 @@ public class Gym {
     public void registerUser(User user){
         assert !verifyUserPersonalId(user) : "User already exists";
         usersList.add(user);
+    }
+
+    /**
+     * Method to register a session in the sessionList.
+     * @param session to add
+     */
+    public void registerSession(Session session){
+        sessionList.add(session);
+    }
+
+    //Search
+
+    /**
+     * Method to search a receptionist using their name
+     * @param name of the receptionist to search
+     * @return the receptionist with the name
+     */
+    public Receptionist getReceptionistFromName(String name){
+        for(Staff receptionist : staffList){
+            if(receptionist.getName().equals(name)){
+                return (Receptionist) receptionist;
+            }
+        }
+        //if this happens there's no receptionist with such name thus it cannot access their Functionality
+        return null;
+    }
+
+    /**
+     * Method to search a trainer using their name
+     * @param name of the trainer to search
+     * @return the trainer with the name
+     */
+    public Trainer getTrainerFromName(String name) {
+        for (Staff trainer : staffList) {
+            if (trainer.getName().equals(name)) {
+                return (Trainer) trainer;
+            }
+        }
+        //if this happens there's no trainer with such name thus it cannot access their Functionality
+        return null;
     }
 
     /**
@@ -165,6 +131,58 @@ public class Gym {
         return user;
     }
 
+
+    /**
+     * Method that updates all membership status and send an email if the membership is to expire.
+     */
+    public void checkMemberships(){
+        for (User user : this.usersList) {
+            Membership memb = user.getTheMembership();
+            memb.updateStatus();
+            if(memb.getEndDate().minusDays(7).isEqual(LocalDate.now())){
+                sendEmailMembership(user);
+            }
+        }
+    }
+
+    /**
+     * Method that verifies if a Staff can log in.
+     * @param name of the Staff
+     * @param password of the Staff
+     * @return if the Staff can log in
+     */
+    public boolean login(String name, String password){
+        boolean flag = false;
+        for(Staff staff : staffList){
+            if(staff.getName().equals(name) && staff.comparePasswords(password)){
+                flag = true;
+                break;
+            }
+        }
+        return flag;
+    }
+
+    /**
+     * Removes trainer from the gym's trainerList
+     * @param trainer that will be removed.
+     */
+    public void removeTrainer(Trainer trainer){
+        trainersList.remove(trainer);
+    }
+
+    /**
+     * Removes the staff member from the gym's staffList
+     * @param staff that will be removed.
+     */
+    public void removeStaff(Staff staff){
+        staffList.remove(staff);
+    }
+
+    /**
+     * Method that verifies if a user already exists in the gym's usersList.
+     * @param user to verify
+     * @return if the user already exists
+     */
     public boolean verifyUserPersonalId(User user){
         boolean flag = false;
         for(User u : usersList){
@@ -176,8 +194,23 @@ public class Gym {
         return flag;
     }
 
-    public void registerSession(Session session){
-        sessionList.add(session);
+    /**
+     * Method that sends an email to the user if his membership is to expire.
+     * @param user to whom the email is to be sent
+     */
+    public void sendEmailMembership(User user){
+        Email email = EmailBuilder.startingBlank()
+                .from("Gym", "jacobo.londonod@uqvirtual.edu.co")
+                .to(user.getName(), user.getEmail())
+                .withSubject("TU MEMBRESIA ESTA A PUNTO DE EXPIRAR")
+                .withPlainText("Tu membresia caduca en 7 dias")
+                .buildEmail();
+        Mailer mailer = MailerBuilder
+                //I don't think putting your token as plain text is a good idea
+                .withSMTPServer("smtp.gmail.com", 587, "londonojacobo92@gmail.com", "gzxg xxyx xbqb lzey")
+                .withTransportStrategy(TransportStrategy.SMTP_TLS)
+                .buildMailer();
+        mailer.sendMail(email);
     }
 
     //Getters and Setters
@@ -246,22 +279,6 @@ public class Gym {
         this.trainersList = trainersList;
     }
 
-
-    public void sendEmailMembership(User user){
-        Email email = EmailBuilder.startingBlank()
-                .from("Gym", "jacobo.londonod@uqvirtual.edu.co")
-                .to(user.getName(), user.getEmail())
-                .withSubject("TU MEMBRESIA ESTA A PUNTO DE EXPIRAR")
-                .withPlainText("Tu membresia caduca en 7 dias")
-                .buildEmail();
-        Mailer mailer = MailerBuilder
-                //I don't think putting your token as plain text is a good idea
-                .withSMTPServer("smtp.gmail.com", 587, "londonojacobo92@gmail.com", "gzxg xxyx xbqb lzey")
-                .withTransportStrategy(TransportStrategy.SMTP_TLS) // or SMTP_SSL, SMTPS
-                .buildMailer();
-        mailer.sendMail(email);
-    }
-
     /**
      * Returns the list of the staff members inside the gym.
      * @return the gym's staffList
@@ -277,4 +294,39 @@ public class Gym {
     public List<Session> getSessionList() {
         return sessionList;
     }
+
+    /**
+     * Sets the list of sessions in the gym.
+     * @param sessionList the list of sessions to be set for the gym
+     */
+    public void setSessionList(List<Session> sessionList) {
+        this.sessionList = sessionList;
+    }
+
+    /**
+     * Sets the list of staff members in the gym.
+     * @param staffList the list of staff members to be assigned to the gym
+     */
+    public void setStaffList(List<Staff> staffList) {
+        this.staffList = staffList;
+    }
+
+    /**
+     * Gets the list of memberships in the gym.
+     * @return the list of memberships in the gym.
+     */
+    public List<Membership> getMembershipsList() {
+        return membershipsList;
+    }
+
+    /**
+     * Sets the list of memberships in the gym.
+     * @param membershipsList the list of memberships to set.
+     */
+    public void setMembershipsList(List<Membership> membershipsList) {
+        this.membershipsList = membershipsList;
+    }
+
+
+
 }

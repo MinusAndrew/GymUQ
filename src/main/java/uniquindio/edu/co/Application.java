@@ -11,22 +11,34 @@ import uniquindio.edu.co.model.enums.MembershipType;
 import uniquindio.edu.co.model.staffs.Admin;
 import uniquindio.edu.co.model.staffs.Receptionist;
 import uniquindio.edu.co.model.staffs.Trainer;
+import uniquindio.edu.co.model.users.Student;
 import uniquindio.edu.co.viewController.*;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class Application extends javafx.application.Application {
+    public static final Gym gym = new Gym("GymUQ", 727);
+    public static final
+    Runnable dailyTask = () ->  {
+        gym.checkMemberships();
+        System.out.println("Hallo");
+        gym.dailyCheck.clear();
+    };
     @Override
     public void start(Stage stage) throws IOException {
         try {
-            Gym gym = new Gym("GymUQ", 727);
-            Receptionist receptionist = new Receptionist("jaco","londono",1128,"311",18,"Switch");
-            User user = new User("Juan","Castaño",109872,"311000000",17, "");
+            ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+            scheduler.scheduleAtFixedRate(dailyTask, 0, 1, TimeUnit.DAYS);
+            Receptionist receptionist = new Receptionist("Jacobo","Londono",1128,"3115314527",18,"Switch");
+            User user = new Student("Juan","Castaño",109872,"311000000",17, "juancastañogmail.com");
             Membership membership = new Membership(80000,user, MembershipPlan.BASIC, MembershipType.MONTHLY);
             Admin admin1 = new Admin("andrew", "idfk", 727, "727", 18, "DOFAI");
 
-            User user1 = new User("Esteban","Gutierrez",109802,"323000000",17, "");
+            User user1 = new Student("Esteban","Gutierrez",109802,"323000000",17, "");
 
             Trainer trainer = new Trainer("Jay", "ninjers", 7227, "888", 26, "123");
 
@@ -46,8 +58,10 @@ public class Application extends javafx.application.Application {
             gym.getStaffList().add(trainer);
             gym.getTrainersList().add(trainer);
 
+
+
             FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("/uniquindio/edu/co/loginMenu.fxml"));
-          //  fxmlLoader.setControllerFactory(param -> new MainView(gym));
+            //fxmlLoader.setControllerFactory(param -> new MainView(gym));
             Scene scene = new Scene(fxmlLoader.load());
             LoginView loginView = fxmlLoader.getController();
             loginView.setTheGym(gym);

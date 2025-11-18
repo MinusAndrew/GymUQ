@@ -1,5 +1,5 @@
 package uniquindio.edu.co.model;
-public class User {
+public abstract class User {
 
     //Attributes
     private String name;
@@ -33,11 +33,21 @@ public class User {
         this.phoneNumber = phoneNumber;
         assert age > 0 : "Cannot add a user with negative age";
         this.age = age;
+        assert email.contains("@");
         this.email = email;
         this.theMembership = theMembership;
         this.theUserSession = theUserSession;
     }
 
+    /**
+     * User class Constructor
+     * @param name of the user
+     * @param lastName of the user
+     * @param personalId of the user
+     * @param phoneNumber of the user
+     * @param age of the user
+     * @param email of the user
+     */
     public User(String name, String lastName, int personalId, String phoneNumber, int age, String email) {
         this.name = name;
         this.lastName = lastName;
@@ -47,8 +57,6 @@ public class User {
         this.age = age;
         this.email = email;
     }
-
-
 
 
     //Getters and Setters
@@ -165,10 +173,18 @@ public class User {
         this.theUserSession = theUserSession;
     }
 
+    /**
+     * Get the user email
+     * @return the user email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Set the user email
+     * @param email of the user
+     */
     public void setEmail(String email) {
         this.email = email;
     }

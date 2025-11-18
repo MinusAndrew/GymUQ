@@ -2,6 +2,7 @@ package uniquindio.edu.co.model.staffs;
 import uniquindio.edu.co.model.*;
 
 public class Admin extends Staff {
+
     /**
      * Admin class Constructor
      *
@@ -27,12 +28,6 @@ public class Admin extends Staff {
         gym.getTrainersList().add(trainer);
     }
 
-     /*
-    These methods were made like this with the only and only the
-    purpose of getting JavaFX up ASAP so I could just call them whenever
-    I need it to.
-     */
-
     /**
      * Modifies a trainer's age.
      * @param trainer whose age will change
@@ -51,7 +46,6 @@ public class Admin extends Staff {
         trainer.setName(name);
     }
 
-
     /**
      * Modifies a trainer's last name.
      * @param trainer whose last name will change.
@@ -60,7 +54,6 @@ public class Admin extends Staff {
     public void modifyTrainerLastName(Trainer trainer, String lastName){
         trainer.setLastName(lastName);
     }
-
 
     /**
      * Modifies a trainer's personal id.
@@ -90,16 +83,13 @@ public class Admin extends Staff {
     }
 
     /**
-     *  Assigns a trainer to a Session (class).
+     * Assigns a trainer to a Session (class).
      * @param session the session that will be assigned.
      * @param trainer the trainer that will be added to a class.
      */
-
-    /*
     public void assignTrainer(Session session, Trainer trainer){
-        trainer.setTheUserSession(session);
-        session.getTrainersList().add(trainer);
+        session.setTheTrainer(trainer);
     }
-    */
+
 
 }

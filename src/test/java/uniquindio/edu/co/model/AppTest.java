@@ -6,30 +6,31 @@ import uniquindio.edu.co.model.enums.MembershipPlan;
 import uniquindio.edu.co.model.users.Student;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 class AppTest {
 
     @Test
-    public void verificarEdadNegativa() {
-        assertThrows(Throwable.class, ()-> new Student("Juan","Castaño",109872,"311000000",-1));
+    void verificarEdadNegativa() {
+        assertThrows(Throwable.class, ()-> new Student("Juan","Castaño",109872,"311000000",-1,"juan@gmail.com"));
     }
 
     @Test
-    public void verifificarUsuarioExistenteId() {
+    void verifificarUsuarioExistenteId() {
         Gym gym = new Gym("Uq",123);
-        User user = new User("Juan", "Castaño",109872,"311000000",18);
-        User user1 = new User("Esteban","Gutierrez",109872,"323000000",17);
+        User user = new Student("Juan", "Castaño",109872,"311000000",18,"juan@gmail.com");
+        User user1 = new Student("Esteban","Gutierrez",109872,"323000000",17,"esteban@gmail.com");
         gym.registerUser(user);
         assertThrows(Throwable.class, ()->gym.registerUser(user1));
 
     }
 
     @Test
-    public void verificarSiLaSesionEstaLlena(){
-        Session session = new Session (2,"Yoga", LocalDate.of(2025,10,18),"Yoganda",null);
-        User user = new User("Juan", "Castaño",109872,"311000000",18);
-        User user1 = new User("Esteban","Gutierrez",109802,"323000000",17);
-        User user2 = new User("jaco","davila",1128,"324",18);
+    void verificarSiLaSesionEstaLlena(){
+        Session session = new Session (2,"Yoga", LocalDate.of(2025,10,18),"Yoganda",null, LocalTime.of(15,0));
+        User user = new Student("Juan", "Castaño",109872,"311000000",18,"juan@gmail.com");
+        User user1 = new Student("Esteban","Gutierrez",109802,"323000000",17,"esteban@gmail.com");
+        User user2 = new Student("jaco","davila",1128,"324",18,"");
         session.addUserToSession(user);
         session.addUserToSession(user1);
         assertThrows(Throwable.class, ()->session.addUserToSession(user2));
@@ -37,9 +38,14 @@ class AppTest {
     }
 
     @Test
-    public void verificarTipoMembresia() {
-        User user = new User("Juan","Castaño",109872,"311000000",18);
+    void verificarTipoMembresia() {
+        User user = new Student("Juan","Castaño",109872,"311000000",18,"juan@gmail.com");
         Membership membership = new Membership(80000, user, MembershipPlan.BASIC, null);
         assertNotNull(membership.getType());
+    }
+
+    @Test
+    void verificarCorreo() {
+        assertThrows(Throwable.class, ()-> new Student("Juan","Castaño",109872,"311000000",18,"juangmail.com"));
     }
 }
