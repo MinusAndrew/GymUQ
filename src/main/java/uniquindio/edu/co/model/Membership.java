@@ -166,7 +166,7 @@ public class Membership {
     @Override
     public String toString() {
         this.status = startDate.isBefore(endDate);
-        return "Membership: " +
+        return
                 "Plan:" + plan +
                 "\nTipo: " + type +
                 "\nFecha de Inicio: " + startDate +
