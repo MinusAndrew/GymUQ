@@ -67,6 +67,11 @@ public class Application extends javafx.application.Application {
             receptionist.assignMembership(individual,membershipInd);
             receptionist.assignMembership(worker,membershipWork);
 
+            //Solo para demostracion del reporte
+            membershipWork.setEndDate(LocalDate.of(2025,10,25));
+            membership.setEndDate(LocalDate.of(2025,11,25));
+
+
             /*
             Worker profesor = new Worker("Raul","Rivera", ,"", , "");
             gym.registerUser(profesor);
