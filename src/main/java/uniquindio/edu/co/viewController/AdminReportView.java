@@ -17,7 +17,7 @@ public class AdminReportView {
          */
 
         // String report = fun();
-         reportArea.setText("test but replace with the report variable");
+         reportArea.setText("Hi teacher there's no report 4 ya but we have a snack.");
     }
 
     public void setTheGym(Gym theGym) {
