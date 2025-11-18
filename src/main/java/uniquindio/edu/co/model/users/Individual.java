@@ -23,6 +23,7 @@ public class Individual extends User {
 
     public Individual(String name, String lastName, int personalId, String phoneNumber, int age, String email) {
         super(name, lastName, personalId, phoneNumber, age, email);
+        assert email.contains("@");
     }
 
 }

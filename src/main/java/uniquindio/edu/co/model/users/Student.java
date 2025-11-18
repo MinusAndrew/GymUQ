@@ -22,6 +22,7 @@ public class Student extends User {
 
     public Student(String name, String lastName, int personalId, String phoneNumber, int age, String email) {
         super(name, lastName, personalId, phoneNumber, age, email);
+        assert email.contains("@");
     }
 
 

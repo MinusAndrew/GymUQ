@@ -12,5 +12,6 @@ public class Worker extends User {
 
     public Worker(String name, String lastName, int personalId, String phoneNumber, int age, String email) {
         super(name, lastName, personalId, phoneNumber, age, email);
+        assert email.contains("@");
     }
 }

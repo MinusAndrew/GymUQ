@@ -188,7 +188,7 @@ public class Staff {
     @Override
     public String toString() {
         return
-                "Nombre: '" + name + lastName + '\n' +
+                "Nombre: '" + name + " " +  lastName + '\n' +
                 "Identificacion: " + personalId + '\n' +
                 "Numero de telefono: '" + phoneNumber;
     }
