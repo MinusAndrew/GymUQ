@@ -92,4 +92,12 @@ public class Admin extends Staff {
     }
 
 
+    /**
+     * This has to supposedly generate the AdminReport buttheresnosht.
+     */
+    public void reportAdmin(){
+        //NOTHING!!! THERE'S NO DATA TO TEST OR EVEN IMAGINE IT!1!
+    }
+
+
 }
